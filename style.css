@@ -414,8 +414,9 @@ button {
 }
 
 .preloader-container.fade-out {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -2084,7 +2085,7 @@ button {
   position: fixed;
   bottom: 32px;
   left: 32px;
-  z-index: 999;
+  z-index: 9998;
 }
 .floating-whatsapp-btn {
   position: relative;
@@ -2146,7 +2147,7 @@ button {
   position: fixed;
   bottom: 32px;
   right: 32px;
-  z-index: 1000;
+  z-index: 9999;
 }
 .chatbot-launcher-btn {
   position: relative;
@@ -2831,3 +2832,4 @@ button {
     scroll-behavior: auto !important;
   }
 }
+

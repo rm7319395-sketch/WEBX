@@ -1,285 +1,318 @@
 /**
  * ============================================================================
  * MUNAP DIGITAL — FUTURISTIC 3D CREATIVE & DIGITAL MARKETING AGENCY
- * POWERED BY webx | CORE JAVASCRIPT ARCHITECTURE
+ * POWERED BY webx | CORE JAVASCRIPT ARCHITECTURE (STABLE & RESILIENT)
  * ============================================================================
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Lucide Icons
-  if (window.lucide) {
+// Global state & references
+let openChatbotWithService = () => {};
+
+function safeCreateIcons() {
+  if (window.lucide && typeof window.lucide.createIcons === 'function') {
     window.lucide.createIcons();
   }
+}
 
-  // Set current year in footer
+// Initialize on DOMContentLoaded and on window load as fallback
+document.addEventListener('DOMContentLoaded', () => {
+  initApp();
+});
+
+window.addEventListener('load', () => {
+  safeCreateIcons();
+});
+
+function initApp() {
+  // 1. Initialize Icons immediately
+  safeCreateIcons();
+  // Poll a few times in case Lucide CDN script loads slightly after DOMContentLoaded
+  let iconPollCount = 0;
+  const iconInterval = setInterval(() => {
+    safeCreateIcons();
+    iconPollCount++;
+    if (iconPollCount > 5) clearInterval(iconInterval);
+  }, 400);
+
+  // 2. Set current year in footer
   const yearEl = document.getElementById('current-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // --------------------------------------------------------------------------
-  // 1. CINEMATIC PRELOADER & GSAP ENTRANCE TIMELINE
-  // --------------------------------------------------------------------------
+  // 3. Cinematic Preloader (with guaranteed auto-dismiss)
   initCinematicPreloader();
 
-  // --------------------------------------------------------------------------
-  // 2. THREE.JS 3D SCULPTURE & FLOATING AMETHYST CRYSTAL SCENE
-  // --------------------------------------------------------------------------
+  // 4. Three.js 3D Sculpture & Crystals (with resilient materials & retry)
   initHeroThreeScene();
 
-  // --------------------------------------------------------------------------
-  // 3. NAVIGATION, HEADER BLUR & MOBILE DRAWER
-  // --------------------------------------------------------------------------
+  // 5. Navigation & Mobile Drawer
   initNavigation();
 
-  // --------------------------------------------------------------------------
-  // 4. 3D TILT EFFECT ON GLASS SERVICE CARDS
-  // --------------------------------------------------------------------------
+  // 6. 3D Tilt Effect on Service Cards
   initTiltCards();
 
-  // --------------------------------------------------------------------------
-  // 5. INTERACTIVE MARKETING DASHBOARD & CHART.JS
-  // --------------------------------------------------------------------------
+  // 7. Interactive Marketing Dashboard & Chart.js
   initMarketingDashboard();
 
-  // --------------------------------------------------------------------------
-  // 6. PORTFOLIO FILTERING & MODALS
-  // --------------------------------------------------------------------------
+  // 8. Portfolio Filtering & Modals
   initPortfolio();
 
-  // --------------------------------------------------------------------------
-  // 7. PROCESS TIMELINE TAB SWITCHER
-  // --------------------------------------------------------------------------
+  // 9. Process Timeline Tab Switcher
   initProcessTabs();
 
-  // --------------------------------------------------------------------------
-  // 8. FAQ ACCORDION
-  // --------------------------------------------------------------------------
+  // 10. FAQ Accordion
   initFaqAccordion();
 
-  // --------------------------------------------------------------------------
-  // 9. CONTACT FORM VALIDATION & WHATSAPP INTEGRATION
-  // --------------------------------------------------------------------------
+  // 11. Contact Form & WhatsApp Integration
   initContactForm();
 
-  // --------------------------------------------------------------------------
-  // 10. GUIDED AI-STYLE CONTACT CHATBOT
-  // --------------------------------------------------------------------------
+  // 12. Guided AI-Style Contact Chatbot
   initAgencyChatbot();
 
-  // --------------------------------------------------------------------------
-  // 11. GSAP SCROLLTRIGGER REVEAL ANIMATIONS
-  // --------------------------------------------------------------------------
+  // 13. GSAP ScrollTrigger Reveal Animations
   initScrollAnimations();
-});
+}
 
 /* ==========================================================================
-   1. CINEMATIC PRELOADER
+   1. CINEMATIC PRELOADER (GUARANTEED DISMISSAL)
    ========================================================================== */
 function initCinematicPreloader() {
   const preloader = document.getElementById('preloader');
   const progressBar = document.getElementById('preloader-progress-bar');
   const counter = document.getElementById('preloader-counter');
 
-  if (!preloader || !progressBar || !counter) return;
+  if (!preloader) return;
+
+  let isDismissed = false;
+
+  function dismissPreloader() {
+    if (isDismissed) return;
+    isDismissed = true;
+
+    preloader.classList.add('fade-out');
+    preloader.style.pointerEvents = 'none';
+
+    setTimeout(() => {
+      preloader.style.display = 'none';
+      document.body.classList.remove('overflow-hidden');
+    }, 600);
+
+    triggerHeroEntrance();
+  }
+
+  // Safety fallback: dismiss after max 1.8 seconds even if anything else stalls
+  const safetyTimer = setTimeout(dismissPreloader, 1800);
 
   let progress = 0;
   const interval = setInterval(() => {
-    progress += Math.floor(Math.random() * 12) + 6;
+    progress += Math.floor(Math.random() * 16) + 10;
     if (progress > 100) progress = 100;
 
-    progressBar.style.width = progress + '%';
-    counter.textContent = progress + '%';
+    if (progressBar) progressBar.style.width = progress + '%';
+    if (counter) counter.textContent = progress + '%';
 
     if (progress >= 100) {
       clearInterval(interval);
-      setTimeout(() => {
-        // Fade out preloader
-        preloader.classList.add('fade-out');
-        document.body.classList.remove('overflow-hidden');
-
-        // Trigger GSAP Hero Entrance
-        triggerHeroEntrance();
-      }, 400);
+      clearTimeout(safetyTimer);
+      setTimeout(dismissPreloader, 250);
     }
-  }, 45);
+  }, 35);
 }
 
 function triggerHeroEntrance() {
-  if (typeof gsap === 'undefined') return;
+  // If GSAP is not available, ensure elements are visible
+  if (typeof gsap === 'undefined') {
+    document.querySelectorAll(
+      '.hero-badge-pill, .hero-main-title, .hero-description, .hero-cta-group, .hero-trust-badges, .editorial-vertical-wrap'
+    ).forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+    return;
+  }
 
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  try {
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-  tl.fromTo('.hero-badge-pill', 
-    { y: -20, opacity: 0 }, 
-    { y: 0, opacity: 1, duration: 0.6 }
-  )
-  .fromTo('.hero-main-title', 
-    { y: 35, opacity: 0 }, 
-    { y: 0, opacity: 1, duration: 0.8 }, 
-    '-=0.3'
-  )
-  .fromTo('.hero-description', 
-    { y: 25, opacity: 0 }, 
-    { y: 0, opacity: 1, duration: 0.7 }, 
-    '-=0.4'
-  )
-  .fromTo('.hero-cta-group', 
-    { y: 20, opacity: 0 }, 
-    { y: 0, opacity: 1, duration: 0.6 }, 
-    '-=0.4'
-  )
-  .fromTo('.hero-trust-badges', 
-    { opacity: 0, scale: 0.95 }, 
-    { opacity: 1, scale: 1, duration: 0.5 }, 
-    '-=0.3'
-  )
-  .fromTo('.editorial-vertical-wrap', 
-    { opacity: 0, x: 25 }, 
-    { opacity: 1, x: 0, duration: 0.9 }, 
-    '-=0.6'
-  );
+    tl.fromTo('.hero-badge-pill', 
+      { y: -20, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.5 }
+    )
+    .fromTo('.hero-main-title', 
+      { y: 30, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.7 }, 
+      '-=0.2'
+    )
+    .fromTo('.hero-description', 
+      { y: 20, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.6 }, 
+      '-=0.3'
+    )
+    .fromTo('.hero-cta-group', 
+      { y: 15, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.5 }, 
+      '-=0.3'
+    )
+    .fromTo('.hero-trust-badges', 
+      { opacity: 0, scale: 0.96 }, 
+      { opacity: 1, scale: 1, duration: 0.4 }, 
+      '-=0.2'
+    )
+    .fromTo('.editorial-vertical-wrap', 
+      { opacity: 0, x: 20 }, 
+      { opacity: 1, x: 0, duration: 0.7 }, 
+      '-=0.4'
+    );
+  } catch (err) {
+    console.warn('GSAP hero entrance warning:', err);
+  }
 }
 
 /* ==========================================================================
-   2. THREE.JS 3D SCULPTURE & FLOATING AMETHYST CRYSTALS
-   ========================================================================= */
+   2. THREE.JS 3D SCULPTURE & FACETED AMETHYST CRYSTALS
+   ========================================================================== */
 function initHeroThreeScene() {
   const canvas = document.getElementById('hero-canvas');
-  if (!canvas || typeof THREE === 'undefined') return;
+  if (!canvas) return;
 
   const container = document.getElementById('hero-3d-wrapper');
   if (!container) return;
 
-  // Scene setup
-  const scene = new THREE.Scene();
-  
-  // Camera
-  const camera = new THREE.PerspectiveCamera(
-    42,
-    container.clientWidth / container.clientHeight,
-    0.1,
-    1000
-  );
-  camera.position.set(0, 0.4, 4.8);
+  // Retry if THREE is not loaded yet (e.g. slow CDN)
+  if (typeof THREE === 'undefined') {
+    setTimeout(initHeroThreeScene, 200);
+    return;
+  }
 
-  // Renderer with high visual fidelity & optimized pixel ratio
+  // Guard against re-initializing
+  if (canvas.dataset.initialized === 'true') return;
+  canvas.dataset.initialized = 'true';
+
+  const scene = new THREE.Scene();
+
+  const width = container.clientWidth || 500;
+  const height = container.clientHeight || 640;
+
+  const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
+  camera.position.set(0, 0.35, window.innerWidth < 768 ? 5.8 : 4.8);
+
   const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     alpha: true,
     antialias: true,
     powerPreference: 'high-performance'
   });
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.35;
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 
   // ------------------------------------------------------------------------
-  // Lighting Rig (Cinematic Purple & Neon Violet Studio Lights)
+  // Lighting Rig (Vibrant Studio Neon Purple, Magenta & Cyan)
   // ------------------------------------------------------------------------
-  const ambientLight = new THREE.AmbientLight(0x180B2B, 1.6);
+  const ambientLight = new THREE.AmbientLight(0x2D1B4E, 2.2);
   scene.add(ambientLight);
 
-  // Key Light (Neon Violet)
-  const keyLight = new THREE.DirectionalLight(0xA855F7, 2.5);
+  const keyLight = new THREE.DirectionalLight(0xA855F7, 3.2);
   keyLight.position.set(3, 4, 3);
   scene.add(keyLight);
 
-  // Rim Light 1 (Electric Magenta/Pink)
-  const rimLight1 = new THREE.DirectionalLight(0xEC4899, 3.2);
-  rimLight1.position.set(-3, 3, -2.5);
+  const rimLight1 = new THREE.DirectionalLight(0xEC4899, 3.8);
+  rimLight1.position.set(-3.5, 2.5, -2);
   scene.add(rimLight1);
 
-  // Rim Light 2 (Cyan/Electric Blue highlight)
-  const rimLight2 = new THREE.DirectionalLight(0x38BDF8, 1.8);
-  rimLight2.position.set(2.5, -2, -2);
+  const rimLight2 = new THREE.DirectionalLight(0x06B6D4, 2.4);
+  rimLight2.position.set(2.5, -2, -1.5);
   scene.add(rimLight2);
 
-  // Interactive Cursor Point Light (follows mouse)
-  const cursorLight = new THREE.PointLight(0xC084FC, 3.0, 8);
-  cursorLight.position.set(0, 0, 2);
+  const cursorLight = new THREE.PointLight(0xC084FC, 3.5, 10);
+  cursorLight.position.set(0, 0.5, 2.5);
   scene.add(cursorLight);
 
-  // Pulsing Core Light inside Crystals
-  const coreLight = new THREE.PointLight(0x8B5CF6, 2.5, 5);
+  const coreLight = new THREE.PointLight(0x9333EA, 3.0, 6);
   coreLight.position.set(0, 0.8, 0.2);
   scene.add(coreLight);
 
   // ------------------------------------------------------------------------
-  // Materials: Reflective Purple Skin & Translucent Amethyst Quartz
+  // Resilient & Shimmering Materials (Faceted Cut Amethyst Gemstones)
   // ------------------------------------------------------------------------
-  // Reflective cybernetic skin material for humanoid bust
-  const cyberSkinMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0x1A0E2E,
-    metalness: 0.85,
-    roughness: 0.22,
-    clearcoat: 1.0,
-    clearcoatRoughness: 0.12,
-    reflectivity: 0.95,
-    envMapIntensity: 1.8
-  });
-
-  // Visor / Cybernetic Chrome Accent Material
-  const chromeAccentMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0x9333EA,
-    metalness: 0.98,
-    roughness: 0.08,
-    clearcoat: 1.0,
-    reflectivity: 1.0
-  });
-
-  // Glowing Neon Core Material
-  const neonEmissiveMaterial = new THREE.MeshStandardMaterial({
-    color: 0xE9D5FF,
-    emissive: 0xA855F7,
-    emissiveIntensity: 2.2,
-    roughness: 0.2
-  });
-
-  // Translucent Amethyst Crystal Glass Material (Physical Transmission)
-  const amethystCrystalMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0xC084FC,
-    emissive: 0x3B0764,
+  const cyberSkinMaterial = new THREE.MeshStandardMaterial({
+    color: 0x3B1868,
+    emissive: 0x1E0942,
     emissiveIntensity: 0.35,
-    transmission: 0.92, // Realistic light pass-through
-    opacity: 1,
-    transparent: true,
-    roughness: 0.06,
-    ior: 1.62, // Refractive index of genuine Amethyst
-    thickness: 2.2,
-    specularIntensity: 1.0,
-    specularColor: new THREE.Color(0xFFFFFF)
+    metalness: 0.8,
+    roughness: 0.22,
+    flatShading: true
   });
 
-  // Master Group containing the entire sculpture
+  const chromeAccentMaterial = new THREE.MeshStandardMaterial({
+    color: 0xA855F7,
+    emissive: 0x6B21A8,
+    emissiveIntensity: 0.5,
+    metalness: 0.95,
+    roughness: 0.12,
+    flatShading: true
+  });
+
+  const neonEmissiveMaterial = new THREE.MeshBasicMaterial({
+    color: 0xF5D0FE
+  });
+
+  // Amethyst faceted crystal material
+  const amethystCrystalMaterial = new THREE.MeshStandardMaterial({
+    color: 0x9333EA,
+    emissive: 0x581C87,
+    emissiveIntensity: 0.6,
+    metalness: 0.25,
+    roughness: 0.15,
+    transparent: true,
+    opacity: 0.92,
+    flatShading: true
+  });
+
+  const amethystCrystalLightMaterial = new THREE.MeshStandardMaterial({
+    color: 0xC084FC,
+    emissive: 0x7E22CE,
+    emissiveIntensity: 0.7,
+    metalness: 0.2,
+    roughness: 0.1,
+    transparent: true,
+    opacity: 0.88,
+    flatShading: true
+  });
+
+  const wireframeMaterial = new THREE.LineBasicMaterial({
+    color: 0xE9D5FF,
+    transparent: true,
+    opacity: 0.45
+  });
+
+  // Master Group
   const mainSculptureGroup = new THREE.Group();
   scene.add(mainSculptureGroup);
 
   // ------------------------------------------------------------------------
-  // 1. Futuristic Cybernetic Human Bust Geometry
+  // 1. Futuristic Cybernetic Human Bust
   // ------------------------------------------------------------------------
   const bustGroup = new THREE.Group();
 
-  // Head Vault (Sophisticated stylized cybernetic head)
-  const headGeo = new THREE.SphereGeometry(0.72, 32, 28);
-  headGeo.scale(1.0, 1.25, 1.1);
+  // Head
+  const headGeo = new THREE.SphereGeometry(0.72, 28, 22);
+  headGeo.scale(1.0, 1.25, 1.08);
   const headMesh = new THREE.Mesh(headGeo, cyberSkinMaterial);
   headMesh.position.set(0, 0.5, 0);
   bustGroup.add(headMesh);
 
-  // Cyber Visor / High-Tech Ocular Band
-  const visorGeo = new THREE.CylinderGeometry(0.73, 0.73, 0.22, 32, 1, false, Math.PI * 0.15, Math.PI * 0.7);
-  visorGeo.rotateY(Math.PI * 0.0);
+  // Visor
+  const visorGeo = new THREE.CylinderGeometry(0.74, 0.74, 0.22, 28, 1, false, Math.PI * 0.15, Math.PI * 0.7);
   const visorMesh = new THREE.Mesh(visorGeo, chromeAccentMaterial);
   visorMesh.position.set(0, 0.62, 0.05);
   bustGroup.add(visorMesh);
 
-  // Glowing Visor Laser Line
-  const visorLineGeo = new THREE.CylinderGeometry(0.735, 0.735, 0.03, 32, 1, false, Math.PI * 0.25, Math.PI * 0.5);
+  // Laser Eye Strip
+  const visorLineGeo = new THREE.CylinderGeometry(0.745, 0.745, 0.04, 28, 1, false, Math.PI * 0.22, Math.PI * 0.56);
   const visorLineMesh = new THREE.Mesh(visorLineGeo, neonEmissiveMaterial);
   visorLineMesh.position.set(0, 0.62, 0.05);
   bustGroup.add(visorLineMesh);
 
-  // Jawline & Chin
+  // Jaw
   const jawGeo = new THREE.ConeGeometry(0.55, 0.7, 5);
   jawGeo.rotateX(Math.PI);
   const jawMesh = new THREE.Mesh(jawGeo, cyberSkinMaterial);
@@ -288,53 +321,65 @@ function initHeroThreeScene() {
   bustGroup.add(jawMesh);
 
   // Neck
-  const neckGeo = new THREE.CylinderGeometry(0.34, 0.42, 0.75, 24);
+  const neckGeo = new THREE.CylinderGeometry(0.34, 0.42, 0.75, 20);
   const neckMesh = new THREE.Mesh(neckGeo, cyberSkinMaterial);
   neckMesh.position.set(0, -0.3, -0.05);
   bustGroup.add(neckMesh);
 
-  // Collarbone & Shoulders Torso Base
+  // Shoulders & Chest
   const shoulderGeo = new THREE.BoxGeometry(2.1, 0.45, 0.95);
   const shoulderMesh = new THREE.Mesh(shoulderGeo, cyberSkinMaterial);
   shoulderMesh.position.set(0, -0.75, -0.05);
   bustGroup.add(shoulderMesh);
 
-  // Chest Pedestal Angle
   const chestGeo = new THREE.CylinderGeometry(0.65, 0.4, 0.6, 16);
   const chestMesh = new THREE.Mesh(chestGeo, cyberSkinMaterial);
   chestMesh.position.set(0, -0.75, 0.1);
   bustGroup.add(chestMesh);
 
+  // Cybernetic Base Ring
+  const ringGeo = new THREE.TorusGeometry(1.3, 0.025, 12, 48);
+  ringGeo.rotateX(Math.PI / 2);
+  const ringMesh = new THREE.Mesh(ringGeo, chromeAccentMaterial);
+  ringMesh.position.set(0, -0.9, 0);
+  bustGroup.add(ringMesh);
+
   mainSculptureGroup.add(bustGroup);
 
   // ------------------------------------------------------------------------
-  // 2. Towering Amethyst Crystal Crown & Clusters
+  // 2. Faceted Amethyst Crystal Crown & Spires
   // ------------------------------------------------------------------------
   const crystalClusterGroup = new THREE.Group();
 
-  function createFacetedCrystal(height, radius, segments = 6) {
+  function createFacetedCrystal(height, radius, segments = 6, useLight = false) {
     const geo = new THREE.ConeGeometry(radius, height, segments);
-    return new THREE.Mesh(geo, amethystCrystalMaterial);
+    const mat = useLight ? amethystCrystalLightMaterial : amethystCrystalMaterial;
+    const mesh = new THREE.Mesh(geo, mat);
+
+    // Add glowing wireframe edges
+    const wireGeo = new THREE.WireframeGeometry(geo);
+    const wire = new THREE.LineSegments(wireGeo, wireframeMaterial);
+    mesh.add(wire);
+
+    return mesh;
   }
 
-  // Spires growing out of the crown & temples
   const crystalSpireSpecs = [
-    { pos: [0, 1.45, -0.1], rot: [0.15, 0, 0], scale: [1, 1.2, 1], h: 1.1, r: 0.22 },
-    { pos: [-0.35, 1.35, -0.15], rot: [-0.2, 0, 0.35], scale: [0.9, 1, 0.9], h: 0.95, r: 0.18 },
-    { pos: [0.35, 1.35, -0.15], rot: [-0.2, 0, -0.35], scale: [0.9, 1, 0.9], h: 0.95, r: 0.18 },
-    { pos: [-0.58, 1.1, -0.05], rot: [0.1, 0.2, 0.65], scale: [0.8, 0.9, 0.8], h: 0.8, r: 0.16 },
-    { pos: [0.58, 1.1, -0.05], rot: [0.1, -0.2, -0.65], scale: [0.8, 0.9, 0.8], h: 0.8, r: 0.16 },
-    { pos: [0, 1.3, 0.25], rot: [0.45, 0, 0], scale: [0.75, 0.8, 0.75], h: 0.7, r: 0.14 },
-    { pos: [-0.28, 1.2, 0.2], rot: [0.35, 0.2, 0.35], scale: [0.7, 0.75, 0.7], h: 0.65, r: 0.14 },
-    { pos: [0.28, 1.2, 0.2], rot: [0.35, -0.2, -0.35], scale: [0.7, 0.75, 0.7], h: 0.65, r: 0.14 },
-    // Back of the head corona
-    { pos: [0, 1.0, -0.45], rot: [-0.6, 0, 0], scale: [1, 1.1, 1], h: 0.85, r: 0.2 },
-    { pos: [-0.4, 0.8, -0.4], rot: [-0.5, 0, 0.5], scale: [0.85, 0.9, 0.85], h: 0.75, r: 0.18 },
-    { pos: [0.4, 0.8, -0.4], rot: [-0.5, 0, -0.5], scale: [0.85, 0.9, 0.85], h: 0.75, r: 0.18 }
+    { pos: [0, 1.45, -0.1], rot: [0.15, 0, 0], scale: [1, 1.25, 1], h: 1.15, r: 0.24, light: true },
+    { pos: [-0.36, 1.35, -0.15], rot: [-0.2, 0, 0.38], scale: [0.9, 1, 0.9], h: 0.98, r: 0.2, light: false },
+    { pos: [0.36, 1.35, -0.15], rot: [-0.2, 0, -0.38], scale: [0.9, 1, 0.9], h: 0.98, r: 0.2, light: false },
+    { pos: [-0.6, 1.1, -0.05], rot: [0.1, 0.2, 0.68], scale: [0.85, 0.95, 0.85], h: 0.85, r: 0.18, light: true },
+    { pos: [0.6, 1.1, -0.05], rot: [0.1, -0.2, -0.68], scale: [0.85, 0.95, 0.85], h: 0.85, r: 0.18, light: true },
+    { pos: [0, 1.3, 0.26], rot: [0.45, 0, 0], scale: [0.75, 0.85, 0.75], h: 0.75, r: 0.16, light: true },
+    { pos: [-0.28, 1.2, 0.22], rot: [0.35, 0.2, 0.35], scale: [0.7, 0.8, 0.7], h: 0.7, r: 0.15, light: false },
+    { pos: [0.28, 1.2, 0.22], rot: [0.35, -0.2, -0.35], scale: [0.7, 0.8, 0.7], h: 0.7, r: 0.15, light: false },
+    { pos: [0, 1.0, -0.45], rot: [-0.6, 0, 0], scale: [1, 1.15, 1], h: 0.9, r: 0.22, light: false },
+    { pos: [-0.42, 0.8, -0.4], rot: [-0.5, 0, 0.52], scale: [0.85, 0.95, 0.85], h: 0.8, r: 0.2, light: true },
+    { pos: [0.42, 0.8, -0.4], rot: [-0.5, 0, -0.52], scale: [0.85, 0.95, 0.85], h: 0.8, r: 0.2, light: true }
   ];
 
   crystalSpireSpecs.forEach(spec => {
-    const crystal = createFacetedCrystal(spec.h, spec.r, 6);
+    const crystal = createFacetedCrystal(spec.h, spec.r, 6, spec.light);
     crystal.position.set(...spec.pos);
     crystal.rotation.set(...spec.rot);
     crystal.scale.set(...spec.scale);
@@ -344,24 +389,28 @@ function initHeroThreeScene() {
   mainSculptureGroup.add(crystalClusterGroup);
 
   // ------------------------------------------------------------------------
-  // 3. Floating Orbiting Crystal Shards & Polyhedrons
+  // 3. Floating Orbiting Crystal Shards
   // ------------------------------------------------------------------------
   const floatingShards = [];
   const shardCount = 20;
 
   for (let i = 0; i < shardCount; i++) {
-    const isOcta = Math.random() > 0.4;
+    const isOcta = Math.random() > 0.45;
     const geo = isOcta 
-      ? new THREE.OctahedronGeometry(0.12 + Math.random() * 0.12, 0)
-      : new THREE.TetrahedronGeometry(0.14 + Math.random() * 0.1, 0);
+      ? new THREE.OctahedronGeometry(0.14 + Math.random() * 0.12, 0)
+      : new THREE.TetrahedronGeometry(0.16 + Math.random() * 0.1, 0);
 
-    const mat = Math.random() > 0.3 ? amethystCrystalMaterial : chromeAccentMaterial;
+    const mat = Math.random() > 0.35 ? amethystCrystalMaterial : amethystCrystalLightMaterial;
     const shard = new THREE.Mesh(geo, mat);
 
-    // Orbit parameters
+    // Glowing wireframe on shards
+    const wireGeo = new THREE.WireframeGeometry(geo);
+    const wire = new THREE.LineSegments(wireGeo, wireframeMaterial);
+    shard.add(wire);
+
     const radius = 1.35 + Math.random() * 1.5;
-    const angle = (i / shardCount) * Math.PI * 2 + Math.random() * 0.5;
-    const height = -0.5 + Math.random() * 2.2;
+    const angle = (i / shardCount) * Math.PI * 2 + Math.random() * 0.4;
+    const height = -0.6 + Math.random() * 2.3;
 
     shard.position.set(
       Math.cos(angle) * radius,
@@ -373,9 +422,9 @@ function initHeroThreeScene() {
       baseY: height,
       radius: radius,
       angle: angle,
-      speed: (0.2 + Math.random() * 0.4) * (Math.random() > 0.5 ? 1 : -1),
-      rotSpeedX: 0.01 + Math.random() * 0.02,
-      rotSpeedY: 0.01 + Math.random() * 0.02,
+      speed: (0.2 + Math.random() * 0.35) * (Math.random() > 0.5 ? 1 : -1),
+      rotSpeedX: 0.012 + Math.random() * 0.02,
+      rotSpeedY: 0.012 + Math.random() * 0.02,
       floatOffset: Math.random() * Math.PI * 2
     };
 
@@ -386,31 +435,30 @@ function initHeroThreeScene() {
   // ------------------------------------------------------------------------
   // 4. Floating 3D Sparkle Dust Particles
   // ------------------------------------------------------------------------
-  const particleCount = 280;
+  const particleCount = 260;
   const particleGeo = new THREE.BufferGeometry();
   const particlePositions = new Float32Array(particleCount * 3);
 
   for (let i = 0; i < particleCount * 3; i += 3) {
-    particlePositions[i] = (Math.random() - 0.5) * 7;
-    particlePositions[i + 1] = (Math.random() - 0.5) * 6;
-    particlePositions[i + 2] = (Math.random() - 0.5) * 5;
+    particlePositions[i] = (Math.random() - 0.5) * 7.5;
+    particlePositions[i + 1] = (Math.random() - 0.5) * 6.5;
+    particlePositions[i + 2] = (Math.random() - 0.5) * 5.5;
   }
 
   particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
 
   const particleMat = new THREE.PointsMaterial({
-    color: 0xC084FC,
-    size: 0.035,
+    color: 0xE9D5FF,
+    size: 0.04,
     transparent: true,
-    opacity: 0.7,
-    blending: THREE.AdditiveBlending
+    opacity: 0.75
   });
 
   const particleSystem = new THREE.Points(particleGeo, particleMat);
   scene.add(particleSystem);
 
   // ------------------------------------------------------------------------
-  // 5. Parallax & Cursor / Touch Interaction
+  // 5. Parallax & Mouse/Touch Tracking
   // ------------------------------------------------------------------------
   let targetRotationX = 0;
   let targetRotationY = 0;
@@ -424,12 +472,10 @@ function initHeroThreeScene() {
     targetRotationY = mouseX * 0.45;
     targetRotationX = -mouseY * 0.25;
 
-    // Track cursor light
     cursorLight.position.x = mouseX * 3.5;
     cursorLight.position.y = mouseY * 2.5 + 0.5;
-  });
+  }, { passive: true });
 
-  // Touch drag for mobile rotation inspection
   canvas.addEventListener('mousedown', (e) => {
     isDragging = true;
     previousMousePosition = { x: e.clientX, y: e.clientY };
@@ -450,7 +496,7 @@ function initHeroThreeScene() {
     previousMousePosition = { x: e.clientX, y: e.clientY };
   });
 
-  // Touch Events
+  // Touch handlers
   canvas.addEventListener('touchstart', (e) => {
     if (e.touches.length === 1) {
       isDragging = true;
@@ -474,61 +520,46 @@ function initHeroThreeScene() {
   });
 
   // ------------------------------------------------------------------------
-  // 6. Responsive Resize & View Visibility Check
+  // 6. Responsive Resize Handling
   // ------------------------------------------------------------------------
   function handleResize() {
     if (!container) return;
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+    const w = container.clientWidth || 500;
+    const h = container.clientHeight || 640;
 
-    camera.aspect = width / height;
-    // Adjust camera distance for mobile so sculpture is centered perfectly
+    camera.aspect = w / h;
     if (window.innerWidth < 768) {
-      camera.position.z = 5.6;
+      camera.position.z = 5.8;
+      camera.position.y = 0.2;
     } else {
       camera.position.z = 4.8;
+      camera.position.y = 0.35;
     }
     camera.updateProjectionMatrix();
 
-    renderer.setSize(width, height);
+    renderer.setSize(w, h);
   }
   window.addEventListener('resize', handleResize);
   handleResize();
 
-  // Pause rendering when hero scrolled out of view to preserve GPU
-  let isHeroVisible = true;
-  const heroObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      isHeroVisible = entry.isIntersecting;
-    });
-  }, { threshold: 0.1 });
-  heroObserver.observe(container);
-
   // ------------------------------------------------------------------------
-  // 7. Render Loop
+  // 7. Render Loop (Always Active & Smooth)
   // ------------------------------------------------------------------------
   const clock = new THREE.Clock();
 
   function animate() {
     requestAnimationFrame(animate);
 
-    if (!isHeroVisible) return;
-
     const elapsedTime = clock.getElapsedTime();
 
-    // Smooth Parallax Lerp when not dragging
     if (!isDragging) {
       mainSculptureGroup.rotation.y += (targetRotationY - mainSculptureGroup.rotation.y) * 0.05;
       mainSculptureGroup.rotation.x += (targetRotationX - mainSculptureGroup.rotation.x) * 0.05;
     }
 
-    // Subtle breathing hover motion
     mainSculptureGroup.position.y = Math.sin(elapsedTime * 1.4) * 0.08;
+    coreLight.intensity = 2.2 + Math.sin(elapsedTime * 3) * 0.8;
 
-    // Pulsing core light
-    coreLight.intensity = 2.0 + Math.sin(elapsedTime * 3) * 0.8;
-
-    // Orbiting shards animation
     floatingShards.forEach((shard) => {
       const data = shard.userData;
       data.angle += data.speed * 0.015;
@@ -541,7 +572,6 @@ function initHeroThreeScene() {
       shard.rotation.y += data.rotSpeedY;
     });
 
-    // Particle field slow drift
     particleSystem.rotation.y = elapsedTime * 0.03;
     particleSystem.rotation.x = Math.sin(elapsedTime * 0.02) * 0.05;
 
@@ -562,7 +592,6 @@ function initNavigation() {
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  // Sticky header background change on scroll
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
       header.classList.add('scrolled');
@@ -571,7 +600,6 @@ function initNavigation() {
     }
   }, { passive: true });
 
-  // Mobile Drawer Toggle
   if (mobileBtn && mobileDrawer) {
     mobileBtn.addEventListener('click', () => {
       mobileDrawer.classList.add('open');
@@ -593,7 +621,6 @@ function initNavigation() {
     });
   }
 
-  // Active section indicator on scroll
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
     const scrollY = window.pageYOffset;
@@ -617,7 +644,7 @@ function initNavigation() {
 }
 
 /* ==========================================================================
-   4. 3D TILT EFFECT ON GLASS CARDS
+   4. 3D TILT EFFECT ON SERVICE CARDS
    ========================================================================== */
 function initTiltCards() {
   const tiltCards = document.querySelectorAll('.tilt-card');
@@ -631,10 +658,10 @@ function initTiltCards() {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      const rotateX = ((y - centerY) / centerY) * -7;
-      const rotateY = ((x - centerX) / centerX) * 7;
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
 
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
     });
 
     card.addEventListener('mouseleave', () => {
@@ -650,9 +677,14 @@ function initMarketingDashboard() {
   const trendCanvas = document.getElementById('marketingTrendChart');
   const donutCanvas = document.getElementById('placementDonutChart');
 
-  if (!trendCanvas || !donutCanvas || typeof Chart === 'undefined') return;
+  if (!trendCanvas || !donutCanvas) return;
 
-  // Chart Preset Data Sets
+  // Retry if Chart.js is still loading
+  if (typeof Chart === 'undefined') {
+    setTimeout(initMarketingDashboard, 300);
+    return;
+  }
+
   const dashboardPresets = {
     ecommerce: {
       reach: '1,480,200',
@@ -692,7 +724,6 @@ function initMarketingDashboard() {
     }
   };
 
-  // Gradient helper
   const ctxTrend = trendCanvas.getContext('2d');
   const gradientPurple = ctxTrend.createLinearGradient(0, 0, 0, 240);
   gradientPurple.addColorStop(0, 'rgba(168, 85, 247, 0.45)');
@@ -702,14 +733,13 @@ function initMarketingDashboard() {
   gradientCyan.addColorStop(0, 'rgba(6, 182, 212, 0.35)');
   gradientCyan.addColorStop(1, 'rgba(6, 182, 212, 0.0)');
 
-  // Initialize Line Trend Chart
   const trendChart = new Chart(trendCanvas, {
     type: 'line',
     data: {
       labels: dashboardPresets.ecommerce.labels,
       datasets: [
         {
-          label: 'Qualified Inbound Traffic (k)',
+          label: 'Inbound Audience Reach (k)',
           data: dashboardPresets.ecommerce.trendReach,
           borderColor: '#A855F7',
           backgroundColor: gradientPurple,
@@ -764,7 +794,6 @@ function initMarketingDashboard() {
     }
   });
 
-  // Initialize Donut Placement Chart
   const donutChart = new Chart(donutCanvas, {
     type: 'doughnut',
     data: {
@@ -795,7 +824,6 @@ function initMarketingDashboard() {
     }
   });
 
-  // Preset Switcher Logic
   const presetButtons = document.querySelectorAll('.btn-filter-preset');
   const reachEl = document.getElementById('kpi-reach');
   const impEl = document.getElementById('kpi-impressions');
@@ -813,7 +841,6 @@ function initMarketingDashboard() {
       const data = dashboardPresets[presetKey];
       if (!data) return;
 
-      // Update KPIs
       if (reachEl) reachEl.textContent = data.reach;
       if (impEl) impEl.textContent = data.impressions;
       if (clicksEl) clicksEl.textContent = data.clicks;
@@ -821,7 +848,6 @@ function initMarketingDashboard() {
       if (cplEl) cplEl.textContent = data.cpl;
       if (cvrEl) cvrEl.textContent = data.cvr;
 
-      // Update Charts
       trendChart.data.labels = data.labels;
       trendChart.data.datasets[0].data = data.trendReach;
       trendChart.data.datasets[1].data = data.trendLeads;
@@ -840,7 +866,6 @@ function initPortfolio() {
   const filterBtns = document.querySelectorAll('.portfolio-filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
-  // Filter switching
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
@@ -855,19 +880,18 @@ function initPortfolio() {
           setTimeout(() => {
             card.style.opacity = '1';
             card.style.transform = 'translateY(0) scale(1)';
-          }, 50);
+          }, 30);
         } else {
           card.style.opacity = '0';
-          card.style.transform = 'translateY(20px) scale(0.96)';
+          card.style.transform = 'translateY(15px) scale(0.96)';
           setTimeout(() => {
             card.style.display = 'none';
-          }, 250);
+          }, 200);
         }
       });
     });
   });
 
-  // Project Details Specs Database (for modal viewer)
   const projectData = {
     lumina: {
       title: 'Lumina Atelier — Haute Couture Storefront',
@@ -947,7 +971,6 @@ function initPortfolio() {
     });
   }
 
-  // Service Details Modal
   const serviceDetails = {
     'business-web': {
       title: 'Business Website Development by webx',
@@ -1069,9 +1092,8 @@ function initPortfolio() {
         li.innerHTML = `<i data-lucide="check" class="check-icon"></i> <span>${inc}</span>`;
         incList.appendChild(li);
       });
-      if (window.lucide) window.lucide.createIcons();
+      safeCreateIcons();
 
-      // Setup consult in chatbot button
       modalConsultBtn.onclick = () => {
         serviceModal.classList.add('hidden');
         openChatbotWithService(data.title);
@@ -1088,7 +1110,6 @@ function initPortfolio() {
     });
   }
 
-  // Discuss this service buttons from Meta Ads section
   const discussBtns = document.querySelectorAll('.btn-discuss-service');
   discussBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1137,14 +1158,12 @@ function initFaqAccordion() {
     questionBtn.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
 
-      // Close all others
       faqItems.forEach(other => {
         other.classList.remove('active');
         const btn = other.querySelector('.faq-question-btn');
         if (btn) btn.setAttribute('aria-expanded', 'false');
       });
 
-      // Toggle current
       if (!isActive) {
         item.classList.add('active');
         questionBtn.setAttribute('aria-expanded', 'true');
@@ -1164,17 +1183,13 @@ function initContactForm() {
 
   if (!form) return;
 
-  // Real WhatsApp number & Email
   const agencyPhone = '8465929132';
-  const agencyPhoneFormatted = '+91 8465929132';
-  const agencyEmail = 'ayanrizju@gmail.com';
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     let isValid = true;
 
-    // Fields
     const nameInput = document.getElementById('contact-name');
     const businessInput = document.getElementById('contact-business');
     const emailInput = document.getElementById('contact-email');
@@ -1184,7 +1199,6 @@ function initContactForm() {
     const budget = document.getElementById('contact-budget').value;
     const details = document.getElementById('contact-details').value;
 
-    // Reset error styles
     document.querySelectorAll('.form-group').forEach(fg => fg.classList.remove('has-error'));
 
     if (!nameInput.value.trim()) {
@@ -1214,17 +1228,14 @@ function initContactForm() {
       return;
     }
 
-    // Show loading state
     const originalText = submitBtn.querySelector('.btn-text').textContent;
     submitBtn.querySelector('.btn-text').textContent = 'Submitting Enquiry...';
     submitBtn.disabled = true;
 
-    // Simulate reliable enquiry acceptance & store locally
     setTimeout(() => {
       submitBtn.querySelector('.btn-text').textContent = originalText;
       submitBtn.disabled = false;
 
-      // Trigger Confetti Celebration
       if (typeof confetti === 'function') {
         confetti({
           particleCount: 80,
@@ -1239,7 +1250,6 @@ function initContactForm() {
         'success'
       );
 
-      // Save to localStorage for persistence
       const enquiryData = {
         name: nameInput.value.trim(),
         business: businessInput.value.trim(),
@@ -1254,10 +1264,9 @@ function initContactForm() {
       localStorage.setItem('munap_last_enquiry', JSON.stringify(enquiryData));
 
       form.reset();
-    }, 900);
+    }, 700);
   });
 
-  // WhatsApp Continuation Button
   if (whatsappBtn) {
     whatsappBtn.addEventListener('click', () => {
       const name = document.getElementById('contact-name').value.trim() || 'Client';
@@ -1268,8 +1277,7 @@ function initContactForm() {
 
       const message = `Hello MUNAP DIGITAL & webx Team,\n\nI would like to discuss a project:\n• Name: ${name}\n• Business: ${business}\n• Service Required: ${service}\n• Estimated Budget: ${budget}\n• Project Details: ${details}\n\nPlease let me know your availability for a free consultation.`;
 
-      const encoded = encodeURIComponent(message);
-      window.open(`https://wa.me/91${agencyPhone}?text=${encoded}`, '_blank');
+      window.open(`https://wa.me/91${agencyPhone}?text=${encodeURIComponent(message)}`, '_blank');
     });
   }
 
@@ -1283,8 +1291,6 @@ function initContactForm() {
 /* ==========================================================================
    10. GUIDED AI-STYLE CONTACT CHATBOT
    ========================================================================== */
-let openChatbotWithService = () => {};
-
 function initAgencyChatbot() {
   const launcher = document.getElementById('chatbot-launcher');
   const windowEl = document.getElementById('chatbot-window');
@@ -1300,11 +1306,9 @@ function initAgencyChatbot() {
 
   const agencyPhone = '8465929132';
 
-  // State Management
   let conversationState = 'INIT';
   let collectedData = {};
 
-  // Toggle Window
   function toggleChatbot(forceOpen = null) {
     const isOpen = windowEl.classList.contains('open');
     const targetState = forceOpen !== null ? forceOpen : !isOpen;
@@ -1335,7 +1339,6 @@ function initAgencyChatbot() {
     resetChat();
   });
 
-  // Global helper for opening with pre-selected service
   openChatbotWithService = (serviceName) => {
     toggleChatbot(true);
     collectedData.service = serviceName;
@@ -1352,7 +1355,6 @@ function initAgencyChatbot() {
     }, 400);
   };
 
-  // Welcome flow
   function startWelcomeFlow() {
     conversationState = 'WELCOME';
     appendAssistantMessage("Hi! 👋 Welcome to MUNAP DIGITAL. Are you looking for a website, digital marketing, or Meta Ads services? I can help you get started.");
@@ -1374,14 +1376,12 @@ function initAgencyChatbot() {
     startWelcomeFlow();
   }
 
-  // Handle Quick Reply selection
   function handleChoice(choiceText) {
     appendUserMessage(choiceText);
     clearQuickReplies();
 
     const normalized = choiceText.toLowerCase();
 
-    // 1. Website Development
     if (normalized.includes('i need a website') || normalized.includes('website development')) {
       collectedData.service = 'Website Development';
       conversationState = 'WEB_FLOW_1';
@@ -1394,9 +1394,8 @@ function initAgencyChatbot() {
           'Startup / Tech',
           'Freelancer / Creator'
         ]);
-      }, 400);
+      }, 350);
     }
-    // 2. E-Commerce
     else if (normalized.includes('e-commerce') || normalized.includes('online store')) {
       collectedData.service = 'E-commerce Website';
       conversationState = 'ECOM_FLOW_1';
@@ -1409,9 +1408,8 @@ function initAgencyChatbot() {
           'Cosmetics & Beauty',
           'Digital Products / Other'
         ]);
-      }, 400);
+      }, 350);
     }
-    // 3. Meta Ads
     else if (normalized.includes('meta ads') || normalized.includes('facebook') || normalized.includes('instagram ads')) {
       collectedData.service = 'Meta Ads Management';
       conversationState = 'META_FLOW_1';
@@ -1423,9 +1421,8 @@ function initAgencyChatbot() {
           'Local Store Visits / Orders',
           'App Downloads / Brand Reach'
         ]);
-      }, 400);
+      }, 350);
     }
-    // 4. Social Media Marketing
     else if (normalized.includes('social media marketing')) {
       collectedData.service = 'Social Media Marketing';
       conversationState = 'SMM_FLOW_1';
@@ -1437,9 +1434,8 @@ function initAgencyChatbot() {
           'LinkedIn + B2B',
           'All Platforms'
         ]);
-      }, 400);
+      }, 350);
     }
-    // 5. Website Pricing
     else if (normalized.includes('pricing') || normalized.includes('cost')) {
       setTimeout(() => {
         appendAssistantMessage("Our pricing depends on your design, features, integrations, and project requirements. Tell us about your project, and our team can prepare a suitable quotation.");
@@ -1448,21 +1444,18 @@ function initAgencyChatbot() {
           'Talk on WhatsApp (+91 8465929132)',
           'Explore Services First'
         ]);
-      }, 400);
+      }, 350);
     }
-    // 6. Talk to Team / Direct Contact
     else if (normalized.includes('talk to the team') || normalized.includes('get a custom quote')) {
       collectedData.service = collectedData.service || 'General Consultation';
       conversationState = 'COLLECT_NAME';
       setTimeout(() => {
         appendAssistantMessage("We would love to talk! What is your full name and business name?");
-      }, 400);
+      }, 350);
     }
-    // WhatsApp Direct option
     else if (normalized.includes('whatsapp') || normalized.includes('talk on whatsapp')) {
       sendToWhatsApp();
     }
-    // Step flows handling
     else {
       processStepFlow(choiceText);
     }
@@ -1475,7 +1468,7 @@ function initAgencyChatbot() {
       setTimeout(() => {
         appendAssistantMessage("Do you already have a registered domain and hosting?");
         setQuickReplies(['Yes, already have both', 'Only have domain', 'No, need assistance with both']);
-      }, 400);
+      }, 350);
     } 
     else if (conversationState === 'WEB_FLOW_2') {
       collectedData.domainStatus = text;
@@ -1483,14 +1476,14 @@ function initAgencyChatbot() {
       setTimeout(() => {
         appendAssistantMessage("What is your target launch timeline?");
         setQuickReplies(['Within 2 weeks', 'Within a month', 'Flexible / Planning phase']);
-      }, 400);
+      }, 350);
     }
     else if (conversationState === 'WEB_FLOW_3') {
       collectedData.timeline = text;
       conversationState = 'COLLECT_CONTACT';
       setTimeout(() => {
         appendAssistantMessage("Excellent! Please share your Email or Phone number so our strategist can send over tailored recommendations.");
-      }, 400);
+      }, 350);
     }
     else if (conversationState === 'ECOM_FLOW_1') {
       collectedData.products = text;
@@ -1498,14 +1491,14 @@ function initAgencyChatbot() {
       setTimeout(() => {
         appendAssistantMessage("Do you need online payment gateway integration (Stripe, Razorpay, etc.) and automated order management?");
         setQuickReplies(['Yes, full payment & order setup', 'Standard checkout only', 'Direct WhatsApp ordering']);
-      }, 400);
+      }, 350);
     }
     else if (conversationState === 'ECOM_FLOW_2') {
       collectedData.ecomSpecs = text;
       conversationState = 'COLLECT_CONTACT';
       setTimeout(() => {
         appendAssistantMessage("Got it! Please share your Email and Phone number so we can provide a detailed e-commerce breakdown.");
-      }, 400);
+      }, 350);
     }
     else if (conversationState === 'META_FLOW_1') {
       collectedData.metaGoal = text;
@@ -1513,7 +1506,7 @@ function initAgencyChatbot() {
       setTimeout(() => {
         appendAssistantMessage("Have you run paid Facebook or Instagram Ads before?");
         setQuickReplies(['Yes, currently active', 'Tried previously', 'New to Meta Ads']);
-      }, 400);
+      }, 350);
     }
     else if (conversationState === 'META_FLOW_2') {
       collectedData.pastExperience = text;
@@ -1521,28 +1514,28 @@ function initAgencyChatbot() {
       setTimeout(() => {
         appendAssistantMessage("What is your approximate monthly advertising budget?");
         setQuickReplies(['Under ₹40,000 / $500', '₹40,000 – ₹1,25,000', '₹1,25,000+', 'Flexible']);
-      }, 400);
+      }, 350);
     }
     else if (conversationState === 'META_FLOW_3') {
       collectedData.budget = text;
       conversationState = 'COLLECT_CONTACT';
       setTimeout(() => {
         appendAssistantMessage("Understood! Please provide your Email or WhatsApp number so we can prepare a strategy blueprint for your campaigns.");
-      }, 400);
+      }, 350);
     }
     else if (conversationState === 'SMM_FLOW_1') {
       collectedData.platforms = text;
       conversationState = 'COLLECT_CONTACT';
       setTimeout(() => {
         appendAssistantMessage("Great! What is your Email or Phone number to send over content strategy examples?");
-      }, 400);
+      }, 350);
     }
     else if (conversationState === 'COLLECT_NAME') {
       collectedData.contactName = text;
       conversationState = 'COLLECT_CONTACT';
       setTimeout(() => {
         appendAssistantMessage(`Nice to meet you, ${text}! What is the best Email or Phone number to reach you?`);
-      }, 400);
+      }, 350);
     }
     else if (conversationState === 'COLLECT_CONTACT' || conversationState === 'CUSTOM_SERVICE_INQUIRY') {
       collectedData.contactInfo = text;
@@ -1554,7 +1547,7 @@ function initAgencyChatbot() {
           'Explore Website Services',
           'Restart Assistant'
         ]);
-      }, 400);
+      }, 350);
     }
     else if (text.toLowerCase().includes('explore website')) {
       window.location.hash = '#services';
@@ -1564,7 +1557,6 @@ function initAgencyChatbot() {
       resetChat();
     }
     else {
-      // General free-text fallback
       collectedData.generalNotes = (collectedData.generalNotes ? collectedData.generalNotes + ' | ' : '') + text;
       setTimeout(() => {
         appendAssistantMessage("Got it! I have noted that down. Would you like to speak directly with our lead strategist on WhatsApp or submit your enquiry?");
@@ -1573,7 +1565,7 @@ function initAgencyChatbot() {
           'Submit My Details',
           'Restart'
         ]);
-      }, 400);
+      }, 350);
     }
   }
 
@@ -1592,7 +1584,6 @@ function initAgencyChatbot() {
     window.open(`https://wa.me/91${agencyPhone}?text=${encodeURIComponent(msg)}`, '_blank');
   }
 
-  // Handle typed input form
   inputForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const val = textInput.value.trim();
@@ -1601,7 +1592,6 @@ function initAgencyChatbot() {
     handleChoice(val);
   });
 
-  // DOM Helpers
   function appendAssistantMessage(htmlText) {
     const bubble = document.createElement('div');
     bubble.className = 'chat-bubble assistant-bubble';
@@ -1641,89 +1631,77 @@ function initAgencyChatbot() {
 }
 
 /* ==========================================================================
-   11. GSAP SCROLLTRIGGER REVEAL ANIMATIONS
+   11. GSAP SCROLLTRIGGER REVEAL ANIMATIONS (WITH SAFE FALLBACK)
    ========================================================================== */
 function initScrollAnimations() {
-  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Section Headers Reveal
-  const sectionHeaders = document.querySelectorAll('.reveal-on-scroll');
-  sectionHeaders.forEach(header => {
-    gsap.fromTo(header,
-      { y: 35, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: header,
-          start: 'top 85%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-  });
-
-  // Services Cards Stagger Reveal
-  const serviceCards = document.querySelectorAll('.service-card');
-  if (serviceCards.length > 0) {
-    gsap.fromTo(serviceCards,
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        stagger: 0.08,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.services-grid',
-          start: 'top 80%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    // If GSAP is missing, make sure all content is fully visible
+    document.querySelectorAll('.reveal-on-scroll, .service-card, .mkt-card, .why-card').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+    return;
   }
 
-  // Meta Marketing Cards Stagger Reveal
-  const mktCards = document.querySelectorAll('.mkt-card');
-  if (mktCards.length > 0) {
-    gsap.fromTo(mktCards,
-      { y: 35, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.marketing-cards-grid',
-          start: 'top 80%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-  }
+  try {
+    gsap.registerPlugin(ScrollTrigger);
 
-  // Why Us Cards Stagger Reveal
-  const whyCards = document.querySelectorAll('.why-card');
-  if (whyCards.length > 0) {
-    gsap.fromTo(whyCards,
-      { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.why-grid',
-          start: 'top 80%',
-          toggleActions: 'play none none none'
+    const sectionHeaders = document.querySelectorAll('.reveal-on-scroll');
+    sectionHeaders.forEach(header => {
+      gsap.fromTo(header,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: header,
+            start: 'top 88%',
+            toggleActions: 'play none none none'
+          }
         }
-      }
-    );
+      );
+    });
+
+    const serviceCards = document.querySelectorAll('.service-card');
+    if (serviceCards.length > 0) {
+      gsap.fromTo(serviceCards,
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.06,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '.services-grid',
+            start: 'top 82%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+    }
+
+    const mktCards = document.querySelectorAll('.mkt-card');
+    if (mktCards.length > 0) {
+      gsap.fromTo(mktCards,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '.marketing-cards-grid',
+            start: 'top 82%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+    }
+  } catch (e) {
+    console.warn('Scroll animations fallback active:', e);
   }
 }

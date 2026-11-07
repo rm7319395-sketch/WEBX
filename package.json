@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
+    "open": "open-website.bat",
+    "verify": "node verify.js",
     "generate-assets": "node generate-assets.js"
   },
   "keywords": [
