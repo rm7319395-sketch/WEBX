@@ -22,12 +22,10 @@
   <circle cx="98" cy="72" r="5" fill="#F59E0B"/>
   <circle cx="116" cy="72" r="5" fill="#10B981"/>
   
-  <!-- Left Side: Digital Gastronomy Experience -->
   <text x="85" y="145" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">AURORA GOURMET</text>
   <text x="85" y="175" font-family="'Inter', sans-serif" font-size="14" fill="#F59E0B" letter-spacing="2">MODERN BOTANICAL DINING</text>
   <text x="85" y="210" font-family="'Inter', sans-serif" font-size="12" fill="#A8A3B3">Interactive QR Menu • Real-time Reservation • WhatsApp Integration</text>
   
-  <!-- Menu preview card -->
   <rect x="85" y="245" width="280" height="175" rx="12" fill="#1B1226" stroke="#8B5CF6" stroke-width="1"/>
   <text x="105" y="278" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Truffle Smoked Wagyu</text>
   <text x="310" y="278" font-family="'Inter', sans-serif" font-size="14" fill="#F59E0B">$68</text>
@@ -38,11 +36,9 @@
   <rect x="105" y="365" width="240" height="36" rx="18" fill="#22C55E" fill-opacity="0.15" stroke="#22C55E" stroke-width="1"/>
   <text x="140" y="388" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#22C55E">⚡ Direct WhatsApp Table Order</text>
   
-  <!-- Right Side: Mobile Viewport Mockup -->
   <g transform="translate(450, 95)">
     <rect width="240" height="330" rx="24" fill="#0B0612" stroke="#A855F7" stroke-width="2"/>
     <rect x="90" y="10" width="60" height="8" rx="4" fill="#2E1C44"/>
-    <!-- Mobile App Screen -->
     <rect x="15" y="30" width="210" height="70" rx="10" fill="#241538"/>
     <text x="30" y="55" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">Table 07 • Reserved</text>
     <text x="30" y="75" font-family="'Inter', sans-serif" font-size="11" fill="#C084FC">Status: Confirmed via WhatsApp</text>

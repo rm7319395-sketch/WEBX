@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * MUNAP DIGITAL — FUTURISTIC 3D CREATIVE & DIGITAL MARKETING AGENCY
+ * webx — FUTURISTIC 3D CREATIVE & DIGITAL MARKETING AGENCY
  * POWERED BY webx | CORE JAVASCRIPT ARCHITECTURE (STABLE & RESILIENT)
  * ============================================================================
  */
@@ -1261,7 +1261,7 @@ function initContactForm() {
         details: details,
         timestamp: new Date().toISOString()
       };
-      localStorage.setItem('munap_last_enquiry', JSON.stringify(enquiryData));
+      localStorage.setItem('webx_last_enquiry', JSON.stringify(enquiryData));
 
       form.reset();
     }, 700);
@@ -1275,7 +1275,7 @@ function initContactForm() {
       const budget = document.getElementById('contact-budget').value || 'To discuss';
       const details = document.getElementById('contact-details').value.trim() || 'Looking forward to discussing project requirements.';
 
-      const message = `Hello MUNAP DIGITAL & webx Team,\n\nI would like to discuss a project:\n• Name: ${name}\n• Business: ${business}\n• Service Required: ${service}\n• Estimated Budget: ${budget}\n• Project Details: ${details}\n\nPlease let me know your availability for a free consultation.`;
+      const message = `Hello webx Team,\n\nI would like to discuss a project:\n• Name: ${name}\n• Business: ${business}\n• Service Required: ${service}\n• Estimated Budget: ${budget}\n• Project Details: ${details}\n\nPlease let me know your availability for a free consultation.`;
 
       window.open(`https://wa.me/91${agencyPhone}?text=${encodeURIComponent(message)}`, '_blank');
     });
@@ -1357,7 +1357,7 @@ function initAgencyChatbot() {
 
   function startWelcomeFlow() {
     conversationState = 'WELCOME';
-    appendAssistantMessage("Hi! 👋 Welcome to MUNAP DIGITAL. Are you looking for a website, digital marketing, or Meta Ads services? I can help you get started.");
+    appendAssistantMessage("Hi! 👋 Welcome to webx. Are you looking for a website, digital marketing, or Meta Ads services? I can help you get started.");
     
     setQuickReplies([
       '1. I Need a Website',
@@ -1570,7 +1570,7 @@ function initAgencyChatbot() {
   }
 
   function sendToWhatsApp() {
-    let msg = `Hello MUNAP DIGITAL Team,\n\nI interacted with the website Assistant:\n`;
+    let msg = `Hello webx Team,\n\nI interacted with the website Assistant:\n`;
     if (collectedData.service) msg += `• Service: ${collectedData.service}\n`;
     if (collectedData.businessType) msg += `• Business: ${collectedData.businessType}\n`;
     if (collectedData.products) msg += `• Products: ${collectedData.products}\n`;

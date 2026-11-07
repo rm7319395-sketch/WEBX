@@ -19,7 +19,6 @@
   <text x="85" y="175" font-family="'Inter', sans-serif" font-size="13" fill="#06B6D4" letter-spacing="2">ARCHITECTURAL LUXURY &amp; INVESTMENTS</text>
   <text x="85" y="210" font-family="'Inter', sans-serif" font-size="12" fill="#94A3B8">Interactive 3D Floorplans • Lead Scoring • High-Net-Worth Funnels</text>
   
-  <!-- Architectural wireframe grid -->
   <g transform="translate(400, 110)">
     <polygon points="50,180 180,80 320,140 190,240" fill="#082F49" stroke="#06B6D4" stroke-width="1.5" opacity="0.8"/>
     <polygon points="180,80 320,140 320,50 180,0" fill="#0E7490" stroke="#06B6D4" stroke-width="1.5" opacity="0.6"/>
@@ -28,7 +27,6 @@
     <circle cx="180" cy="80" r="4" fill="#FFFFFF"/>
   </g>
   
-  <!-- Lead Generation Box -->
   <rect x="85" y="245" width="280" height="165" rx="12" fill="#081E34" stroke="#06B6D4" stroke-width="1" stroke-opacity="0.5"/>
   <text x="105" y="280" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">VILLA CELESTIA</text>
   <text x="105" y="305" font-family="'Inter', sans-serif" font-size="13" fill="#38BDF8">4,800 Sq. Ft • $3.4M</text>

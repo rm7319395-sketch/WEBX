@@ -1,6 +1,6 @@
 @echo off
-title MUNAP DIGITAL - webx Agency Website
-echo Starting MUNAP DIGITAL Local Server...
+title webx - webx Agency Website
+echo Starting webx Local Server...
 
 :: Check if Node is installed
 where node >nul 2>nul
@@ -12,3 +12,4 @@ if %ERRORLEVEL% EQU 0 (
     start index.html
 )
 pause
+

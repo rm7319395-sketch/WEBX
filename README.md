@@ -1,5 +1,4 @@
-# MUNAP DIGITAL — Futuristic 3D Creative & Digital Marketing Agency
-### Web Development Division: **webx**
+# # webx — Futuristic 3D Creative & Digital Marketing Agency
 
 > **Tagline:** We Turn Ideas Into Digital Experiences.  
 > **Marketing Headline:** We Turn Attention Into Growth.  
@@ -9,7 +8,7 @@
 
 ## 🌟 Overview
 
-**MUNAP DIGITAL** is an international-standard, futuristic creative digital agency website built to unite high-end visual aesthetics with real commercial acquisition engineering. Engineered by the **webx** development team, the website merges a cinematic 3D sculpture bust and translucent amethyst quartz crystals with conversion-focused Meta advertising architecture and an interactive AI-style guided chatbot.
+**webx** is an international-standard, futuristic creative digital agency website built to unite high-end visual aesthetics with real commercial acquisition engineering. Engineered by the **webx** development team, the website merges a cinematic 3D sculpture bust and translucent amethyst quartz crystals with conversion-focused Meta advertising architecture and an interactive AI-style guided chatbot.
 
 ---
 
@@ -46,7 +45,7 @@
 - **Editorial Three-Column Layout:**
   - Left: Studio badge, headline *"Your Vision. Our Digital Magic."*, description, dual CTAs, trust pills, social connectors.
   - Center: Three.js 3D canvas and atmospheric radial glow flares.
-  - Right: Vertical editorial typography (*MUNAP DIGITAL*, *CREATIVE • DEVELOPMENT • GROWTH*), glowing neon beam, and floating glass stat chip.
+  - Right: Vertical editorial typography (*webx*, *CREATIVE • DEVELOPMENT • GROWTH*), glowing neon beam, and floating glass stat chip.
 
 ### 3. Sticky Glass Navigation Bar
 - Frosted glassmorphism with blur and purple glowing borders.
@@ -83,7 +82,7 @@
 - Interactive Preset Switcher: *E-Commerce Scale*, *B2B & Lead Gen*, *Local & Restaurant*.
 - Explicit required disclaimer: *"Illustrative demo data for campaign architecture visualization."*
 
-### 7. Why Choose MUNAP DIGITAL?
+### 7. Why Choose webx?
 - Headline: *"More Than Design. More Than Ads. A Complete Digital Growth Partner."*
 - 4 Feature blocks: Creative Excellence, Modern Technology (webx core), Business-Focused Strategy, Continuous Improvement.
 
@@ -190,10 +189,10 @@ npx serve .
 
 ## 📞 Agency Contact
 
-- **Brand:** MUNAP DIGITAL
+- **Brand:** webx
 - **Web Development Studio:** webx
 - **Phone:** `+91 8465929132`
 - **WhatsApp:** `https://wa.me/918465929132`
 - **Email:** `ayanrizju@gmail.com`
-- **Website:** MUNAP DIGITAL — Digital Experiences & Acquisition Architecture
+- **Website:** webx — Digital Experiences & Acquisition Architecture
 

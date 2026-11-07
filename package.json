@@ -1,7 +1,7 @@
 {
-  "name": "munap-digital",
+  "name": "webx",
   "version": "1.0.0",
-  "description": "Futuristic 3D Creative & Digital Marketing Agency Website for MUNAP DIGITAL, powered by webx.",
+  "description": "Futuristic 3D Creative & Digital Marketing Agency Website for webx.",
   "main": "index.html",
   "scripts": {
     "start": "node server.js",
@@ -20,6 +20,6 @@
     "webx",
     "luxury-website"
   ],
-  "author": "MUNAP DIGITAL & webx <ayanrizju@gmail.com>",
+  "author": "webx <ayanrizju@gmail.com>",
   "license": "MIT"
 }

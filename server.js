@@ -63,7 +63,7 @@ function createServer(port) {
   server.listen(port, () => {
     const url = `http://localhost:${port}`;
     console.log(`\n======================================================`);
-    console.log(`✨ MUNAP DIGITAL — Futuristic Agency Website (webx)`);
+    console.log(`✨ webx — Futuristic Agency Website (webx)`);
     console.log(`🌐 Server Running At: ${url}`);
     console.log(`======================================================\n`);
 

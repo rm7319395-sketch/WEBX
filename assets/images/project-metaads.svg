@@ -20,7 +20,6 @@
   <text x="85" y="175" font-family="'Inter', sans-serif" font-size="13" fill="#C084FC" letter-spacing="2">HIGH-ROAS META ADVERTISING SUITE</text>
   <text x="85" y="210" font-family="'Inter', sans-serif" font-size="12" fill="#A8A3B3">Dynamic Reels Creatives • Audience Retargeting Funnels • Scaled Lead Flow</text>
   
-  <!-- Funnel Stats Panel -->
   <g transform="translate(85, 245)">
     <rect width="180" height="70" rx="10" fill="#1E1238" stroke="#8B5CF6" stroke-width="1"/>
     <text x="15" y="30" font-family="'Inter', sans-serif" font-size="11" fill="#A8A3B3">Illustrative ROAS</text>
@@ -31,11 +30,9 @@
     <text x="215" y="55" font-family="'Space Grotesk', sans-serif" font-size="22" font-weight="700" fill="#E9D5FF">3.85%</text>
   </g>
   
-  <!-- Ad Mockup Card (Reels / Story Format) -->
   <g transform="translate(500, 95)">
     <rect width="210" height="330" rx="16" fill="#0C0718" stroke="url(#metaGrad)" stroke-width="2"/>
     <rect x="20" y="25" width="170" height="180" rx="10" fill="#201338"/>
-    <!-- Play Icon & Glow -->
     <circle cx="105" cy="115" r="28" fill="#8B5CF6" fill-opacity="0.4"/>
     <polygon points="98,103 118,115 98,127" fill="#FFFFFF"/>
     <text x="20" y="235" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">Meta Ads Creative</text>

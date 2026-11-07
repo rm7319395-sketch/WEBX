@@ -19,16 +19,13 @@
   <text x="85" y="175" font-family="'Inter', sans-serif" font-size="13" fill="#818CF8" letter-spacing="2">PRIVATE AVIATION &amp; GLOBAL EXPEDITIONS</text>
   <text x="85" y="210" font-family="'Inter', sans-serif" font-size="12" fill="#94A3B8">Ultra-responsive flight charter booking with global airport routing</text>
   
-  <!-- Interactive Flight Route Card -->
   <g transform="translate(420, 120)">
     <rect width="280" height="280" rx="14" fill="#141733" stroke="#6366F1" stroke-width="1.2"/>
     <text x="25" y="45" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">DXB ➔ LHR</text>
     <text x="25" y="70" font-family="'Inter', sans-serif" font-size="12" fill="#818CF8">Gulfstream G700 • Non-stop</text>
-    <!-- Route arc -->
     <path d="M30 150 Q 140 80 250 150" stroke="#A855F7" stroke-width="3" fill="none" stroke-linecap="round"/>
     <circle cx="30" cy="150" r="5" fill="#6366F1"/>
     <circle cx="250" cy="150" r="5" fill="#EC4899"/>
-    <!-- Specs -->
     <rect x="25" y="180" width="230" height="75" rx="8" fill="#0C0D20"/>
     <text x="40" y="208" font-family="'Inter', sans-serif" font-size="12" fill="#9CA3AF">Flight Time: 7h 15m</text>
     <text x="40" y="232" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="600" fill="#34D399">Instant Quote Ready</text>

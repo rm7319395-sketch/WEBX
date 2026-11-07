@@ -21,15 +21,17 @@
   <!-- Outer Crystal Facets -->
   <polygon points="80,18 135,52 135,112 80,146 25,112 25,52" stroke="url(#neonGlow)" stroke-width="2.5" fill="none" opacity="0.6"/>
   
-  <!-- Interlocking Futuristic M Shape / Crystal Shard -->
-  <path d="M42 118 V56 L80 92 L118 56 V118" stroke="url(#purpleGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <!-- Interlocking Futuristic W & X Monogram for webx -->
+  <path d="M38 52 V114 L80 78 L122 114 V52" stroke="url(#purpleGrad)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="M48 114 L112 52" stroke="url(#neonGlow)" stroke-width="3.5" stroke-linecap="round" opacity="0.7"/>
+  <path d="M112 114 L48 52" stroke="url(#neonGlow)" stroke-width="3.5" stroke-linecap="round" opacity="0.7"/>
   
   <!-- Central Floating Amethyst Diamond -->
-  <polygon points="80,38 98,68 80,98 62,68" fill="url(#neonGlow)" fill-opacity="0.85"/>
-  <polygon points="80,38 80,98 62,68" fill="#E9D5FF" fill-opacity="0.4"/>
+  <polygon points="80,38 98,66 80,94 62,66" fill="url(#neonGlow)" fill-opacity="0.85"/>
+  <polygon points="80,38 80,94 62,66" fill="#E9D5FF" fill-opacity="0.45"/>
   
   <!-- Light Sparks -->
   <circle cx="80" cy="38" r="3" fill="#FFFFFF"/>
-  <circle cx="42" cy="56" r="2.5" fill="#E9D5FF"/>
-  <circle cx="118" cy="56" r="2.5" fill="#E9D5FF"/>
+  <circle cx="38" cy="52" r="2.5" fill="#E9D5FF"/>
+  <circle cx="122" cy="52" r="2.5" fill="#E9D5FF"/>
 </svg>
