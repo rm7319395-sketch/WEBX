@@ -1,0 +1,6 @@
+# robots.txt for MUNAP DIGITAL (webx)
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://munapdigital.com/sitemap.xml
