@@ -1,0 +1,23 @@
+{
+  "name": "munap-digital",
+  "version": "1.0.0",
+  "description": "Futuristic 3D Creative & Digital Marketing Agency Website for MUNAP DIGITAL, powered by webx.",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "generate-assets": "node generate-assets.js"
+  },
+  "keywords": [
+    "threejs",
+    "webgl",
+    "gsap",
+    "digital-agency",
+    "meta-ads",
+    "web-development",
+    "webx",
+    "luxury-website"
+  ],
+  "author": "MUNAP DIGITAL & webx <ayanrizju@gmail.com>",
+  "license": "MIT"
+}

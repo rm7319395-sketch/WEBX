@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060E18"/>
+      <stop offset="100%" stop-color="#02050B"/>
+    </linearGradient>
+    <linearGradient id="cyanPurple" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg3)"/>
+  <rect x="50" y="45" width="700" height="410" rx="16" fill="#0B1322" fill-opacity="0.85" stroke="#06B6D4" stroke-width="1.2" stroke-opacity="0.4"/>
+  <circle cx="80" cy="72" r="5" fill="#EC4899"/>
+  <circle cx="98" cy="72" r="5" fill="#F59E0B"/>
+  <circle cx="116" cy="72" r="5" fill="#10B981"/>
+  
+  <text x="85" y="145" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">NEXUS PROPTECH</text>
+  <text x="85" y="175" font-family="'Inter', sans-serif" font-size="13" fill="#06B6D4" letter-spacing="2">ARCHITECTURAL LUXURY &amp; INVESTMENTS</text>
+  <text x="85" y="210" font-family="'Inter', sans-serif" font-size="12" fill="#94A3B8">Interactive 3D Floorplans • Lead Scoring • High-Net-Worth Funnels</text>
+  
+  <!-- Architectural wireframe grid -->
+  <g transform="translate(400, 110)">
+    <polygon points="50,180 180,80 320,140 190,240" fill="#082F49" stroke="#06B6D4" stroke-width="1.5" opacity="0.8"/>
+    <polygon points="180,80 320,140 320,50 180,0" fill="#0E7490" stroke="#06B6D4" stroke-width="1.5" opacity="0.6"/>
+    <polygon points="50,180 180,80 180,0 50,90" fill="#155E75" stroke="#06B6D4" stroke-width="1.5" opacity="0.7"/>
+    <line x1="180" y1="80" x2="180" y2="240" stroke="#38BDF8" stroke-dasharray="4 4" stroke-width="1.5"/>
+    <circle cx="180" cy="80" r="4" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- Lead Generation Box -->
+  <rect x="85" y="245" width="280" height="165" rx="12" fill="#081E34" stroke="#06B6D4" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="105" y="280" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">VILLA CELESTIA</text>
+  <text x="105" y="305" font-family="'Inter', sans-serif" font-size="13" fill="#38BDF8">4,800 Sq. Ft • $3.4M</text>
+  <rect x="105" y="325" width="240" height="38" rx="8" fill="url(#cyanPurple)"/>
+  <text x="150" y="348" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">REQUEST VIP TOUR</text>
+  <text x="105" y="390" font-family="'Inter', sans-serif" font-size="11" fill="#64748B">Instant agent callback via WhatsApp</text>
+</svg>

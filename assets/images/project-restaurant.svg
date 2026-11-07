@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#140A18"/>
+      <stop offset="100%" stop-color="#06020A"/>
+    </linearGradient>
+    <linearGradient id="neonGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="f2" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="35" result="b"/>
+      <feComposite in="SourceGraphic" in2="b" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg2)"/>
+  <circle cx="250" cy="180" r="150" fill="#A855F7" fill-opacity="0.22" filter="url(#f2)"/>
+  <circle cx="600" cy="350" r="140" fill="#22C55E" fill-opacity="0.15" filter="url(#f2)"/>
+  
+  <rect x="50" y="45" width="700" height="410" rx="16" fill="#130D1C" fill-opacity="0.85" stroke="#C084FC" stroke-width="1.5" stroke-opacity="0.3"/>
+  <circle cx="80" cy="72" r="5" fill="#EC4899"/>
+  <circle cx="98" cy="72" r="5" fill="#F59E0B"/>
+  <circle cx="116" cy="72" r="5" fill="#10B981"/>
+  
+  <!-- Left Side: Digital Gastronomy Experience -->
+  <text x="85" y="145" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">AURORA GOURMET</text>
+  <text x="85" y="175" font-family="'Inter', sans-serif" font-size="14" fill="#F59E0B" letter-spacing="2">MODERN BOTANICAL DINING</text>
+  <text x="85" y="210" font-family="'Inter', sans-serif" font-size="12" fill="#A8A3B3">Interactive QR Menu • Real-time Reservation • WhatsApp Integration</text>
+  
+  <!-- Menu preview card -->
+  <rect x="85" y="245" width="280" height="175" rx="12" fill="#1B1226" stroke="#8B5CF6" stroke-width="1"/>
+  <text x="105" y="278" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Truffle Smoked Wagyu</text>
+  <text x="310" y="278" font-family="'Inter', sans-serif" font-size="14" fill="#F59E0B">$68</text>
+  <line x1="105" y1="298" x2="345" y2="298" stroke="#332446" stroke-width="1"/>
+  <text x="105" y="325" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Midnight Caviar Tartlet</text>
+  <text x="310" y="325" font-family="'Inter', sans-serif" font-size="14" fill="#F59E0B">$44</text>
+  <line x1="105" y1="345" x2="345" y2="345" stroke="#332446" stroke-width="1"/>
+  <rect x="105" y="365" width="240" height="36" rx="18" fill="#22C55E" fill-opacity="0.15" stroke="#22C55E" stroke-width="1"/>
+  <text x="140" y="388" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#22C55E">⚡ Direct WhatsApp Table Order</text>
+  
+  <!-- Right Side: Mobile Viewport Mockup -->
+  <g transform="translate(450, 95)">
+    <rect width="240" height="330" rx="24" fill="#0B0612" stroke="#A855F7" stroke-width="2"/>
+    <rect x="90" y="10" width="60" height="8" rx="4" fill="#2E1C44"/>
+    <!-- Mobile App Screen -->
+    <rect x="15" y="30" width="210" height="70" rx="10" fill="#241538"/>
+    <text x="30" y="55" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">Table 07 • Reserved</text>
+    <text x="30" y="75" font-family="'Inter', sans-serif" font-size="11" fill="#C084FC">Status: Confirmed via WhatsApp</text>
+    <rect x="15" y="115" width="210" height="180" rx="10" fill="#170F24"/>
+    <circle cx="120" cy="170" r="35" fill="#8B5CF6" fill-opacity="0.3"/>
+    <polygon points="120,145 145,170 120,195 95,170" fill="#A855F7"/>
+    <text x="60" y="235" font-family="'Inter', sans-serif" font-size="12" fill="#E9D5FF">Scan QR For Digital Menu</text>
+    <text x="45" y="260" font-family="'Inter', sans-serif" font-size="10" fill="#9CA3AF">Zero app install required</text>
+  </g>
+</svg>

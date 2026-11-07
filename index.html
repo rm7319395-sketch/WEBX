@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MUNAP DIGITAL — Futuristic 3D Creative &amp; Digital Marketing Agency | Powered by webx</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="MUNAP DIGITAL is a premier futuristic digital agency specializing in bespoke website development by webx, UI/UX design, high-converting Meta Ads, lead generation, and scalable business growth.">
+  <meta name="keywords" content="MUNAP DIGITAL, webx, website development, Meta Ads, Facebook advertising, Instagram ads, lead generation, UI/UX design, e-commerce websites, restaurant websites">
+  <meta name="author" content="MUNAP DIGITAL & webx">
+  <meta name="theme-color" content="#050407">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MUNAP DIGITAL — Futuristic 3D Creative &amp; Digital Marketing Agency">
+  <meta property="og:description" content="We Turn Ideas Into Digital Experiences. We Turn Attention Into Growth. Bespoke web development by webx and strategic Meta Ads.">
+  <meta property="og:image" content="assets/images/project-ecommerce.svg">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MUNAP DIGITAL — Futuristic 3D Creative &amp; Digital Marketing Agency">
+  <meta name="twitter:description" content="We Turn Ideas Into Digital Experiences. We Turn Attention Into Growth.">
+  <meta name="twitter:image" content="assets/images/project-ecommerce.svg">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- External Libraries: Lucide Icons, Three.js, GSAP, Chart.js, Canvas Confetti -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "MUNAP DIGITAL",
+    "alternateName": "webx",
+    "image": "assets/icons/logo.svg",
+    "telephone": "+918465929132",
+    "email": "ayanrizju@gmail.com",
+    "description": "Futuristic 3D Creative and Digital Marketing Agency specializing in web development by webx, UI/UX, Meta Ads, and lead generation.",
+    "priceRange": "$$",
+    "areaServed": "Global",
+    "sameAs": [
+      "https://wa.me/918465929132"
+    ],
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Website Development by webx",
+        "description": "Custom modern responsive websites, e-commerce, and high-performance landing pages."
+      },
+      {
+        "@type": "Offer",
+        "name": "Meta Ads & Social Media Growth",
+        "description": "Data-driven Facebook and Instagram advertising and lead generation."
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-primary text-body antialiased selection:bg-purple-600 selection:text-white">
+
+  <!-- =========================================================================
+       1. CINEMATIC INTRO & PRELOADER
+       ========================================================================= -->
+  <div id="preloader" class="fixed-overlay preloader-container flex-center" aria-hidden="true">
+    <div class="preloader-content flex-column flex-center">
+      <!-- Glow Aura -->
+      <div class="preloader-glow-orb"></div>
+      
+      <!-- Illuminated Crystal Logo -->
+      <div class="preloader-logo-wrapper">
+        <img src="assets/icons/logo.svg" alt="MUNAP DIGITAL" class="preloader-logo-img">
+      </div>
+      
+      <!-- Brand Typography -->
+      <div class="preloader-brand-title">
+        <span class="brand-name">MUNAP</span> <span class="brand-accent">DIGITAL</span>
+      </div>
+      <div class="preloader-tagline">WE TURN IDEAS INTO DIGITAL EXPERIENCES</div>
+      
+      <!-- Progress Bar & Indicator -->
+      <div class="preloader-progress-track">
+        <div id="preloader-progress-bar" class="preloader-progress-fill"></div>
+      </div>
+      
+      <div class="preloader-counter-row">
+        <span class="preloader-status">INITIALIZING SYSTEM ARCHITECTURE</span>
+        <span id="preloader-counter" class="preloader-number">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Ambient Glow Canvas & Atmosphere -->
+  <div class="ambient-nebula-container" aria-hidden="true">
+    <div class="nebula-spot spot-top-left"></div>
+    <div class="nebula-spot spot-center-purple"></div>
+    <div class="nebula-spot spot-bottom-right"></div>
+    <div class="ambient-grid-overlay"></div>
+  </div>
+
+  <!-- =========================================================================
+       2. STICKY GLASS NAVIGATION BAR
+       ========================================================================= -->
+  <header id="main-header" class="site-header">
+    <nav class="nav-container flex-between" aria-label="Main Navigation">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-link flex-center">
+        <div class="brand-icon-wrap">
+          <img src="assets/icons/logo.svg" alt="MUNAP DIGITAL Emblem" class="brand-logo-img">
+        </div>
+        <div class="brand-text-wrap">
+          <span class="nav-brand-main">MUNAP<span class="text-violet">DIGITAL</span></span>
+          <span class="nav-sub-brand">WEB DEV BY <span class="text-highlight">webx</span></span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-links desktop-only" role="menubar">
+        <li role="none"><a href="#hero" class="nav-link active" role="menuitem">Home</a></li>
+        <li role="none"><a href="#services" class="nav-link" role="menuitem">Web Solutions</a></li>
+        <li role="none"><a href="#meta-ads" class="nav-link" role="menuitem">Meta Ads</a></li>
+        <li role="none"><a href="#dashboard" class="nav-link" role="menuitem">Dashboard</a></li>
+        <li role="none"><a href="#portfolio" class="nav-link" role="menuitem">Projects</a></li>
+        <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
+        <li role="none"><a href="#process" class="nav-link" role="menuitem">Process</a></li>
+        <li role="none"><a href="#faq" class="nav-link" role="menuitem">FAQ</a></li>
+        <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
+      </ul>
+
+      <!-- Right Action CTA -->
+      <div class="nav-actions flex-center">
+        <a href="#contact" class="btn-glow-purple desktop-only">
+          <span>Get Free Consultation</span>
+          <i data-lucide="arrow-up-right" class="btn-icon"></i>
+        </a>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="mobile-toggle-btn mobile-only" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line line-1"></span>
+          <span class="hamburger-line line-2"></span>
+          <span class="hamburger-line line-3"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+      <div class="drawer-header flex-between">
+        <span class="drawer-brand">MUNAP <span>DIGITAL</span></span>
+        <button id="drawer-close-btn" class="drawer-close" aria-label="Close menu">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <ul class="mobile-nav-list">
+        <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+        <li><a href="#services" class="mobile-nav-link">Web Development (webx)</a></li>
+        <li><a href="#meta-ads" class="mobile-nav-link">Meta Ads &amp; Growth</a></li>
+        <li><a href="#dashboard" class="mobile-nav-link">Live Campaign Visualizer</a></li>
+        <li><a href="#portfolio" class="mobile-nav-link">Concept Projects</a></li>
+        <li><a href="#about" class="mobile-nav-link">About Agency</a></li>
+        <li><a href="#process" class="mobile-nav-link">Our Work Process</a></li>
+        <li><a href="#faq" class="mobile-nav-link">FAQs</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact &amp; Enquiry</a></li>
+      </ul>
+      <div class="drawer-footer">
+        <a href="https://wa.me/918465929132" target="_blank" rel="noopener" class="btn-whatsapp-full">
+          <i data-lucide="message-circle"></i> Quick WhatsApp: +91 8465929132
+        </a>
+        <p class="drawer-contact-info">Email: ayanrizju@gmail.com</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================================
+         3. HERO SECTION — MAIN 3D ANIMATION & EDITORIAL COMPOSITION
+         ========================================================================= -->
+    <section id="hero" class="hero-section">
+      <div class="hero-container">
+        
+        <!-- Hero Left Column: Brand Statement & Lead CTAs -->
+        <div class="hero-left-col hero-animate-left">
+          <div class="hero-badge-pill">
+            <span class="pulse-dot"></span>
+            <span class="badge-text">DIGITAL EXPERIENCES STUDIO</span>
+            <span class="badge-accent">BY webx</span>
+          </div>
+
+          <h1 class="hero-main-title">
+            Your Vision. <br>
+            <span class="gradient-text hero-magic-text">Our Digital Magic.</span>
+          </h1>
+
+          <p class="hero-description">
+            We design powerful websites and strategic digital advertising experiences that help businesses stand out, attract customers, and grow online.
+          </p>
+
+          <div class="hero-cta-group flex-center-start">
+            <a href="#services" class="btn-primary-purple">
+              <span>Explore Our Services</span>
+              <i data-lucide="arrow-down" class="btn-arrow-icon"></i>
+            </a>
+            <button id="hero-talk-btn" class="btn-glass-secondary">
+              <i data-lucide="sparkles" class="btn-sparkle-icon"></i>
+              <span>Let's Talk</span>
+            </button>
+          </div>
+
+          <!-- Trust Indicators -->
+          <div class="hero-trust-badges">
+            <div class="trust-pill">
+              <i data-lucide="code-2" class="trust-icon"></i>
+              <span>Web Development by <strong>webx</strong></span>
+            </div>
+            <div class="trust-pill">
+              <i data-lucide="trending-up" class="trust-icon"></i>
+              <span>Meta Ads Management</span>
+            </div>
+          </div>
+
+          <!-- Subtle Social Connectors -->
+          <div class="hero-social-row">
+            <span class="social-label">CONNECT:</span>
+            <a href="https://wa.me/918465929132" target="_blank" rel="noopener" class="social-icon-link" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+            <a href="mailto:ayanrizju@gmail.com" class="social-icon-link" aria-label="Email"><i data-lucide="mail"></i></a>
+            <a href="#contact" class="social-icon-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            <a href="#contact" class="social-icon-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Hero Center Column: SIGNATURE 3D HUMAN BUST & FLOATING CRYSTALS -->
+        <div class="hero-center-col" id="hero-3d-wrapper">
+          <div class="hero-3d-canvas-container">
+            <!-- Three.js Canvas -->
+            <canvas id="hero-canvas" class="three-canvas" aria-label="Interactive 3D Futuristic Bust with Amethyst Crystals"></canvas>
+            
+            <!-- Atmospheric Lighting Flares -->
+            <div class="crystal-core-flare"></div>
+            <div class="crystal-rim-magenta"></div>
+
+            <!-- Interactive 3D Control Pill -->
+            <div class="hero-interaction-hint">
+              <i data-lucide="move-3d" class="hint-icon"></i>
+              <span>Drag to rotate 3D sculpture • Cursor refracts amethyst crystals</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: LUXURY EDITORIAL VERTICAL TYPOGRAPHY -->
+        <div class="hero-right-col hero-animate-right">
+          <div class="editorial-vertical-wrap">
+            <div class="vertical-brand-main">
+              <span>MUNAP</span>
+              <span class="text-violet">DIGITAL</span>
+            </div>
+            <div class="vertical-glowing-beam"></div>
+            <div class="vertical-tagline-sub">
+              <span>CREATIVE</span>
+              <span class="bullet">•</span>
+              <span>DEVELOPMENT</span>
+              <span class="bullet">•</span>
+              <span>GROWTH</span>
+            </div>
+          </div>
+
+          <!-- Floating Micro Card -->
+          <div class="hero-floating-stat-card glass-panel">
+            <div class="floating-stat-icon">
+              <i data-lucide="gem"></i>
+            </div>
+            <div class="floating-stat-content">
+              <span class="stat-meta">ENGINEERED ELEGANCE</span>
+              <span class="stat-highlight">100% Bespoke Code</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. SERVICES SECTION — WEBSITE DEVELOPMENT (webx)
+         ========================================================================= -->
+    <section id="services" class="section-padding services-section relative-section">
+      <div class="section-container">
+        
+        <!-- Section Header -->
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="sub-heading-pill">
+            <i data-lucide="layers" class="pill-icon"></i>
+            <span>WEBSITE DEVELOPMENT • POWERED BY webx</span>
+          </div>
+          <h2 class="section-title">Digital Solutions That Move Your Business Forward.</h2>
+          <p class="section-subtitle">
+            From high-speed e-commerce systems to conversion-focused landing pages, our webx development team engineers websites designed for superior aesthetics, performance, and revenue generation.
+          </p>
+        </div>
+
+        <!-- 8 Glassmorphic Service Cards Grid -->
+        <div class="services-grid">
+          
+          <!-- Card 01 -->
+          <div class="service-card glass-card tilt-card" data-service-id="business-web">
+            <div class="card-num">01</div>
+            <div class="card-icon-wrap icon-purple">
+              <i data-lucide="building-2"></i>
+            </div>
+            <h3 class="card-title">Business Website Development</h3>
+            <p class="card-desc">Modern, responsive business websites designed to establish an authoritative online presence and convert visitors into long-term clients.</p>
+            <ul class="card-features-list">
+              <li><i data-lucide="check" class="check-icon"></i> Clean custom corporate architecture</li>
+              <li><i data-lucide="check" class="check-icon"></i> Blazing fast Core Web Vitals</li>
+              <li><i data-lucide="check" class="check-icon"></i> Lead capture &amp; CRM contact flows</li>
+            </ul>
+            <button class="btn-card-action open-service-modal" data-target="business-web">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="service-card glass-card tilt-card" data-service-id="ecommerce">
+            <div class="card-num">02</div>
+            <div class="card-icon-wrap icon-neon">
+              <i data-lucide="shopping-bag"></i>
+            </div>
+            <h3 class="card-title">E-commerce Website Development</h3>
+            <p class="card-desc">High-converting online shopping websites with product management, friction-free checkout, cart recovery, and payment gateways.</p>
+            <ul class="card-features-list">
+              <li><i data-lucide="check" class="check-icon"></i> Secure global payment processing</li>
+              <li><i data-lucide="check" class="check-icon"></i> Automated inventory &amp; order tracking</li>
+              <li><i data-lucide="check" class="check-icon"></i> Optimized for high mobile sales</li>
+            </ul>
+            <button class="btn-card-action open-service-modal" data-target="ecommerce">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 03 -->
+          <div class="service-card glass-card tilt-card" data-service-id="restaurant">
+            <div class="card-num">03</div>
+            <div class="card-icon-wrap icon-gold">
+              <i data-lucide="utensils"></i>
+            </div>
+            <h3 class="card-title">Restaurant Websites</h3>
+            <p class="card-desc">Digital menus, mouth-watering food galleries, table reservation booking, and direct instant WhatsApp ordering for cafes and dining.</p>
+            <ul class="card-features-list">
+              <li><i data-lucide="check" class="check-icon"></i> Instant QR code digital menus</li>
+              <li><i data-lucide="check" class="check-icon"></i> WhatsApp direct-to-kitchen ordering</li>
+              <li><i data-lucide="check" class="check-icon"></i> Google Maps &amp; local SEO integration</li>
+            </ul>
+            <button class="btn-card-action open-service-modal" data-target="restaurant">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 04 -->
+          <div class="service-card glass-card tilt-card" data-service-id="portfolio">
+            <div class="card-num">04</div>
+            <div class="card-icon-wrap icon-cyan">
+              <i data-lucide="briefcase"></i>
+            </div>
+            <h3 class="card-title">Portfolio Websites</h3>
+            <p class="card-desc">Creative, unforgettable portfolios tailored for freelancers, architects, creators, students, and executive professionals.</p>
+            <ul class="card-features-list">
+              <li><i data-lucide="check" class="check-icon"></i> Interactive showcase galleries</li>
+              <li><i data-lucide="check" class="check-icon"></i> Fluid animations and storytelling</li>
+              <li><i data-lucide="check" class="check-icon"></i> Direct inquiry handoff to WhatsApp/Email</li>
+            </ul>
+            <button class="btn-card-action open-service-modal" data-target="portfolio">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 05 -->
+          <div class="service-card glass-card tilt-card" data-service-id="landing-pages">
+            <div class="card-num">05</div>
+            <div class="card-icon-wrap icon-purple">
+              <i data-lucide="target"></i>
+            </div>
+            <h3 class="card-title">Landing Page Development</h3>
+            <p class="card-desc">Hyper-focused, conversion-engineered landing pages built specifically for paid ad campaigns, product launches, and lead capture.</p>
+            <ul class="card-features-list">
+              <li><i data-lucide="check" class="check-icon"></i> Tested persuasive sales structure</li>
+              <li><i data-lucide="check" class="check-icon"></i> Sub-second page load times</li>
+              <li><i data-lucide="check" class="check-icon"></i> A/B test ready and Meta Pixel primed</li>
+            </ul>
+            <button class="btn-card-action open-service-modal" data-target="landing-pages">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 06 -->
+          <div class="service-card glass-card tilt-card" data-service-id="uiux">
+            <div class="card-num">06</div>
+            <div class="card-icon-wrap icon-pink">
+              <i data-lucide="palette"></i>
+            </div>
+            <h3 class="card-title">UI/UX Design</h3>
+            <p class="card-desc">World-class visual design, intuitive user journeys, wireframes, prototypes, and user interfaces that feel effortless to navigate.</p>
+            <ul class="card-features-list">
+              <li><i data-lucide="check" class="check-icon"></i> Comprehensive Figma design systems</li>
+              <li><i data-lucide="check" class="check-icon"></i> User journey mapping &amp; wireframes</li>
+              <li><i data-lucide="check" class="check-icon"></i> Micro-interactions &amp; motion design</li>
+            </ul>
+            <button class="btn-card-action open-service-modal" data-target="uiux">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 07 -->
+          <div class="service-card glass-card tilt-card" data-service-id="maintenance">
+            <div class="card-num">07</div>
+            <div class="card-icon-wrap icon-blue">
+              <i data-lucide="shield-check"></i>
+            </div>
+            <h3 class="card-title">Website Maintenance</h3>
+            <p class="card-desc">Proactive updates, server monitoring, bug fixes, speed optimizations, security patches, and reliable ongoing technical support.</p>
+            <ul class="card-features-list">
+              <li><i data-lucide="check" class="check-icon"></i> 99.9% uptime monitoring</li>
+              <li><i data-lucide="check" class="check-icon"></i> Regular security &amp; plugin patching</li>
+              <li><i data-lucide="check" class="check-icon"></i> Priority technical assistance from webx</li>
+            </ul>
+            <button class="btn-card-action open-service-modal" data-target="maintenance">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 08 -->
+          <div class="service-card glass-card tilt-card" data-service-id="custom-solutions">
+            <div class="card-num">08</div>
+            <div class="card-icon-wrap icon-violet">
+              <i data-lucide="cpu"></i>
+            </div>
+            <h3 class="card-title">Custom Website Solutions</h3>
+            <p class="card-desc">Tailored web platforms, client portals, custom calculators, booking engines, and bespoke applications built for unique business workflows.</p>
+            <ul class="card-features-list">
+              <li><i data-lucide="check" class="check-icon"></i> Tailored API &amp; webhook integrations</li>
+              <li><i data-lucide="check" class="check-icon"></i> Custom database architectures</li>
+              <li><i data-lucide="check" class="check-icon"></i> Scalable cloud deployment setups</li>
+            </ul>
+            <button class="btn-card-action open-service-modal" data-target="custom-solutions">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. META ADS & DIGITAL MARKETING SECTION
+         ========================================================================= -->
+    <section id="meta-ads" class="section-padding meta-ads-section">
+      <div class="section-container">
+        
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="sub-heading-pill">
+            <i data-lucide="flame" class="pill-icon text-violet"></i>
+            <span>META ADS &amp; AUDIENCE ACQUISITION</span>
+          </div>
+          <h2 class="section-title">Turn Clicks Into Customers.</h2>
+          <p class="section-subtitle">
+            Strategic Meta Ads and creative advertising campaigns designed to help businesses reach the right audience and grow with confidence.
+          </p>
+        </div>
+
+        <div class="marketing-cards-grid">
+          
+          <!-- Marketing Card 1 -->
+          <div class="mkt-card glass-card">
+            <div class="mkt-badge">CORE STRATEGY</div>
+            <div class="mkt-icon-wrap">
+              <i data-lucide="compass"></i>
+            </div>
+            <h3 class="mkt-title">Meta Ads Management</h3>
+            <p class="mkt-desc">Facebook and Instagram campaign planning, technical Pixel/CAPI setup, audience segmentation, bid monitoring, and aggressive scaling.</p>
+            <div class="mkt-metric-box">
+              <span class="metric-label">Execution Focus</span>
+              <span class="metric-value">Full Funnel Meta Architecture</span>
+            </div>
+            <button class="btn-discuss-service" data-service="Meta Ads Management">
+              <span>Discuss This Service</span>
+              <i data-lucide="message-square"></i>
+            </button>
+          </div>
+
+          <!-- Marketing Card 2 -->
+          <div class="mkt-card glass-card">
+            <div class="mkt-badge">HIGH INTENT</div>
+            <div class="mkt-icon-wrap">
+              <i data-lucide="user-check"></i>
+            </div>
+            <h3 class="mkt-title">Lead Generation</h3>
+            <p class="mkt-desc">Targeted lead capture funnels, instant form integration, and high-converting landing pages built to deliver qualified prospective clients.</p>
+            <div class="mkt-metric-box">
+              <span class="metric-label">Target Outcome</span>
+              <span class="metric-value">Verified Buyer Inquiries</span>
+            </div>
+            <button class="btn-discuss-service" data-service="Lead Generation">
+              <span>Discuss This Service</span>
+              <i data-lucide="message-square"></i>
+            </button>
+          </div>
+
+          <!-- Marketing Card 3 -->
+          <div class="mkt-card glass-card">
+            <div class="mkt-badge">VISUAL IMPACT</div>
+            <div class="mkt-icon-wrap">
+              <i data-lucide="image"></i>
+            </div>
+            <h3 class="mkt-title">Creative Ad Design</h3>
+            <p class="mkt-desc">Scroll-stopping static graphic creatives, carousels, typographic punchlines, and aesthetic visuals engineered to win the attention war in feed.</p>
+            <div class="mkt-metric-box">
+              <span class="metric-label">Format Variety</span>
+              <span class="metric-value">Feed, Story &amp; Carousel</span>
+            </div>
+            <button class="btn-discuss-service" data-service="Creative Ad Design">
+              <span>Discuss This Service</span>
+              <i data-lucide="message-square"></i>
+            </button>
+          </div>
+
+          <!-- Marketing Card 4 -->
+          <div class="mkt-card glass-card">
+            <div class="mkt-badge">VIRAL ENGAGEMENT</div>
+            <div class="mkt-icon-wrap">
+              <i data-lucide="video"></i>
+            </div>
+            <h3 class="mkt-title">Video Ad Creation</h3>
+            <p class="mkt-desc">Short-form promotional video concepts, Instagram Reels, dynamic typography hooks, and high-energy motion ads that hold viewer retention.</p>
+            <div class="mkt-metric-box">
+              <span class="metric-label">Hook Focus</span>
+              <span class="metric-value">3-Second Hook Retention</span>
+            </div>
+            <button class="btn-discuss-service" data-service="Video Ad Creation">
+              <span>Discuss This Service</span>
+              <i data-lucide="message-square"></i>
+            </button>
+          </div>
+
+          <!-- Marketing Card 5 -->
+          <div class="mkt-card glass-card">
+            <div class="mkt-badge">BRAND AUTHORITY</div>
+            <div class="mkt-icon-wrap">
+              <i data-lucide="share-2"></i>
+            </div>
+            <h3 class="mkt-title">Social Media Marketing</h3>
+            <p class="mkt-desc">Cohesive brand voice, grid curation, engagement strategies, and audience nurture loops across Instagram and Facebook channels.</p>
+            <div class="mkt-metric-box">
+              <span class="metric-label">Channel Synergy</span>
+              <span class="metric-value">Organic + Paid Alignment</span>
+            </div>
+            <button class="btn-discuss-service" data-service="Social Media Marketing">
+              <span>Discuss This Service</span>
+              <i data-lucide="message-square"></i>
+            </button>
+          </div>
+
+          <!-- Marketing Card 6 -->
+          <div class="mkt-card glass-card">
+            <div class="mkt-badge">DATA DISCIPLINE</div>
+            <div class="mkt-icon-wrap">
+              <i data-lucide="bar-chart-3"></i>
+            </div>
+            <h3 class="mkt-title">Campaign Optimization</h3>
+            <p class="mkt-desc">Continuous A/B audience testing, creative decay management, budget reallocation, and ROAS enhancement based on real performance analytics.</p>
+            <div class="mkt-metric-box">
+              <span class="metric-label">Review Cycle</span>
+              <span class="metric-value">Weekly Strategic Iteration</span>
+            </div>
+            <button class="btn-discuss-service" data-service="Campaign Optimization">
+              <span>Discuss This Service</span>
+              <i data-lucide="message-square"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. INTERACTIVE 3D MARKETING DASHBOARD
+         ========================================================================= -->
+    <section id="dashboard" class="section-padding dashboard-section">
+      <div class="section-container">
+        
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="sub-heading-pill">
+            <i data-lucide="activity" class="pill-icon text-cyan"></i>
+            <span>DATA-DRIVEN CAMPAIGN ARCHITECTURE</span>
+          </div>
+          <h2 class="section-title">Interactive Campaign Performance Visualizer</h2>
+          <p class="section-subtitle">
+            Experience how we structure, monitor, and scale Meta advertising funnels with full transparency.
+          </p>
+        </div>
+
+        <!-- Floating Glass Dashboard Container -->
+        <div class="dashboard-glass-panel">
+          
+          <!-- Dashboard Top Bar: Preset Filters & Status Indicator -->
+          <div class="dashboard-topbar flex-between flex-wrap">
+            <div class="dashboard-presets flex-center">
+              <span class="preset-label desktop-only">CAMPAIGN PRESET:</span>
+              <button class="btn-filter-preset active" data-preset="ecommerce">E-Commerce Scale</button>
+              <button class="btn-filter-preset" data-preset="leadgen">B2B &amp; Lead Gen</button>
+              <button class="btn-filter-preset" data-preset="local">Local &amp; Restaurant</button>
+            </div>
+            
+            <div class="dashboard-status-indicator flex-center">
+              <span class="status-pulse"></span>
+              <span class="status-text">INTERACTIVE DEMO SIMULATION</span>
+            </div>
+          </div>
+
+          <!-- KPI Metric Counter Grid (6 Cards) -->
+          <div class="kpi-grid">
+            
+            <div class="kpi-card">
+              <div class="kpi-header flex-between">
+                <span class="kpi-title">Campaign Reach</span>
+                <i data-lucide="users" class="kpi-icon"></i>
+              </div>
+              <div class="kpi-val-row">
+                <span id="kpi-reach" class="kpi-counter" data-target="1480200">1,480,200</span>
+                <span class="kpi-badge badge-green">+24.8%</span>
+              </div>
+              <span class="kpi-sub">Unique audience members</span>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header flex-between">
+                <span class="kpi-title">Impressions</span>
+                <i data-lucide="eye" class="kpi-icon"></i>
+              </div>
+              <div class="kpi-val-row">
+                <span id="kpi-impressions" class="kpi-counter" data-target="3842500">3,842,500</span>
+                <span class="kpi-badge badge-purple">High Freq</span>
+              </div>
+              <span class="kpi-sub">Total ad views across feeds</span>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header flex-between">
+                <span class="kpi-title">Link Clicks</span>
+                <i data-lucide="mouse-pointer" class="kpi-icon"></i>
+              </div>
+              <div class="kpi-val-row">
+                <span id="kpi-clicks" class="kpi-counter" data-target="96400">96,400</span>
+                <span class="kpi-badge badge-green">3.12% CTR</span>
+              </div>
+              <span class="kpi-sub">Qualified inbound traffic</span>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header flex-between">
+                <span class="kpi-title">Leads Generated</span>
+                <i data-lucide="user-plus" class="kpi-icon"></i>
+              </div>
+              <div class="kpi-val-row">
+                <span id="kpi-leads" class="kpi-counter" data-target="1248">1,248</span>
+                <span class="kpi-badge badge-green">+18.5%</span>
+              </div>
+              <span class="kpi-sub">Direct business enquiries</span>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header flex-between">
+                <span class="kpi-title">Cost Per Lead (CPL)</span>
+                <i data-lucide="dollar-sign" class="kpi-icon"></i>
+              </div>
+              <div class="kpi-val-row">
+                <span id="kpi-cpl" class="kpi-counter-val">₹398 / $4.85</span>
+                <span class="kpi-badge badge-green">-14.2%</span>
+              </div>
+              <span class="kpi-sub">Efficient acquisition cost</span>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header flex-between">
+                <span class="kpi-title">Conversion Rate</span>
+                <i data-lucide="zap" class="kpi-icon"></i>
+              </div>
+              <div class="kpi-val-row">
+                <span id="kpi-cvr" class="kpi-counter-val">4.62%</span>
+                <span class="kpi-badge badge-purple">Optimized</span>
+              </div>
+              <span class="kpi-sub">Visitor-to-action ratio</span>
+            </div>
+
+          </div>
+
+          <!-- Interactive Chart.js Area & Bar Visualizations -->
+          <div class="dashboard-charts-layout">
+            
+            <div class="chart-container-card">
+              <div class="chart-header flex-between">
+                <div class="chart-title-group">
+                  <h4 class="chart-box-title">Audience Acquisition &amp; Conversion Trajectory</h4>
+                  <span class="chart-box-sub">Multi-touch Meta Pixel tracking breakdown</span>
+                </div>
+                <div class="chart-controls flex-center">
+                  <button id="toggle-chart-time" class="chart-pill-btn active">Weekly View</button>
+                </div>
+              </div>
+              <div class="chart-canvas-wrap">
+                <canvas id="marketingTrendChart"></canvas>
+              </div>
+            </div>
+
+            <div class="chart-container-card secondary-chart">
+              <div class="chart-header flex-between">
+                <div class="chart-title-group">
+                  <h4 class="chart-box-title">Channel Allocation &amp; Ad Placements</h4>
+                  <span class="chart-box-sub">Where audience attention converts highest</span>
+                </div>
+              </div>
+              <div class="chart-canvas-wrap">
+                <canvas id="placementDonutChart"></canvas>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Mandatory Transparency Notice -->
+          <div class="dashboard-disclaimer flex-center">
+            <i data-lucide="info" class="disclaimer-icon"></i>
+            <p>
+              <strong>Illustrative Demo Data:</strong> The statistics and graph metrics displayed in this interactive dashboard are simulated visual models intended to demonstrate campaign tracking architecture and data-driven reporting systems. Actual campaign metrics vary based on client industry, budget, creative performance, and seasonal benchmarks.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. WHY CHOOSE MUNAP DIGITAL?
+         ========================================================================= -->
+    <section class="section-padding why-choose-section">
+      <div class="section-container">
+        
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="sub-heading-pill">
+            <i data-lucide="award" class="pill-icon text-violet"></i>
+            <span>THE MUNAP ADVANTAGE</span>
+          </div>
+          <h2 class="section-title">More Than Design. More Than Ads. A Complete Digital Growth Partner.</h2>
+          <p class="section-subtitle">
+            We bridge the gap between creative visual mastery and calculated marketing engineering.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          
+          <div class="why-card glass-card">
+            <div class="why-step-num">01</div>
+            <div class="why-icon-wrap">
+              <i data-lucide="sparkles"></i>
+            </div>
+            <h3 class="why-title">Creative Excellence</h3>
+            <p class="why-desc">
+              We design with the aesthetic refinement of an international design house. Every color nuance, typography pairing, and visual layout is crafted to elevate your brand beyond generic templates.
+            </p>
+          </div>
+
+          <div class="why-card glass-card">
+            <div class="why-step-num">02</div>
+            <div class="why-icon-wrap">
+              <i data-lucide="terminal"></i>
+            </div>
+            <h3 class="why-title">Modern Technology</h3>
+            <p class="why-desc">
+              Powered by webx engineering, our web builds leverage modern web standards, lightweight responsive code, Three.js 3D capabilities, and clean architecture without bloated page builders.
+            </p>
+          </div>
+
+          <div class="why-card glass-card">
+            <div class="why-step-num">03</div>
+            <div class="why-icon-wrap">
+              <i data-lucide="crosshair"></i>
+            </div>
+            <h3 class="why-title">Business-Focused Strategy</h3>
+            <p class="why-desc">
+              Visual beauty without business results is vanity. We align every design element, ad creative, and landing page hook directly with measurable lead acquisition and customer conversion.
+            </p>
+          </div>
+
+          <div class="why-card glass-card">
+            <div class="why-step-num">04</div>
+            <div class="why-icon-wrap">
+              <i data-lucide="repeat"></i>
+            </div>
+            <h3 class="why-title">Continuous Improvement</h3>
+            <p class="why-desc">
+              Digital environments evolve constantly. We emphasize structured feedback, rigorous A/B creative testing, and technical refinement to sustain long-term digital relevance.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. PROJECT PORTFOLIO
+         ========================================================================= -->
+    <section id="portfolio" class="section-padding portfolio-section">
+      <div class="section-container">
+        
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="sub-heading-pill">
+            <i data-lucide="grid" class="pill-icon text-cyan"></i>
+            <span>CURATED SHOWCASE &amp; DEMONSTRATION WORK</span>
+          </div>
+          <h2 class="section-title">Crafted With Precision &amp; Imagination.</h2>
+          <p class="section-subtitle">
+            Explore our conceptual builds and digital experiences developed to illustrate our design standard and technical capabilities across diverse industries.
+          </p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="portfolio-filter-row flex-center flex-wrap">
+          <button class="portfolio-filter-btn active" data-category="all">All Showcase</button>
+          <button class="portfolio-filter-btn" data-category="ecommerce">E-commerce</button>
+          <button class="portfolio-filter-btn" data-category="restaurant">Restaurant</button>
+          <button class="portfolio-filter-btn" data-category="business">Business</button>
+          <button class="portfolio-filter-btn" data-category="travel">Travel</button>
+          <button class="portfolio-filter-btn" data-category="creative">Creative</button>
+          <button class="portfolio-filter-btn" data-category="marketing">Ad Campaigns</button>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div class="portfolio-grid" id="portfolio-container">
+          
+          <!-- Project 1 -->
+          <article class="project-card glass-card" data-category="ecommerce">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project-ecommerce.svg" alt="Lumina Atelier E-Commerce Concept" class="project-img" loading="lazy">
+              <div class="project-overlay flex-center">
+                <button class="btn-view-project" data-project="lumina">
+                  <span>Inspect Concept</span>
+                  <i data-lucide="external-link"></i>
+                </button>
+              </div>
+              <span class="project-badge">Concept Project</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta-row flex-between">
+                <span class="project-category">E-COMMERCE WEBSITE</span>
+                <span class="project-tech">webx • Headless Storefront</span>
+              </div>
+              <h3 class="project-title">Lumina Atelier — Haute Couture Storefront</h3>
+              <p class="project-summary">
+                A high-fashion luxury digital boutique engineered with sub-second page transitions, dynamic currency switches, and high-converting single-step checkout.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card glass-card" data-category="restaurant">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project-restaurant.svg" alt="Aurora Gourmet Restaurant Concept" class="project-img" loading="lazy">
+              <div class="project-overlay flex-center">
+                <button class="btn-view-project" data-project="aurora">
+                  <span>Inspect Concept</span>
+                  <i data-lucide="external-link"></i>
+                </button>
+              </div>
+              <span class="project-badge">Concept Project</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta-row flex-between">
+                <span class="project-category">RESTAURANT &amp; HOSPITALITY</span>
+                <span class="project-tech">webx • WhatsApp Ordering</span>
+              </div>
+              <h3 class="project-title">Aurora Gourmet — Modern Botanical Dining</h3>
+              <p class="project-summary">
+                An immersive restaurant website featuring instant QR digital menus, automated table reservation request flow, and one-tap WhatsApp food ordering.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card glass-card" data-category="business">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project-realestate.svg" alt="Nexus PropTech Real Estate Concept" class="project-img" loading="lazy">
+              <div class="project-overlay flex-center">
+                <button class="btn-view-project" data-project="nexus">
+                  <span>Inspect Concept</span>
+                  <i data-lucide="external-link"></i>
+                </button>
+              </div>
+              <span class="project-badge">Concept Project</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta-row flex-between">
+                <span class="project-category">BUSINESS &amp; REAL ESTATE</span>
+                <span class="project-tech">webx • Interactive 3D</span>
+              </div>
+              <h3 class="project-title">Nexus PropTech — Luxury Villa Showcase</h3>
+              <p class="project-summary">
+                High-end architectural property portal with interactive floorplan previews, mortgage valuation tools, and direct VIP broker callback integration.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card glass-card" data-category="travel">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project-travel.svg" alt="Velox Jetstream Aviation Travel Concept" class="project-img" loading="lazy">
+              <div class="project-overlay flex-center">
+                <button class="btn-view-project" data-project="velox">
+                  <span>Inspect Concept</span>
+                  <i data-lucide="external-link"></i>
+                </button>
+              </div>
+              <span class="project-badge">Concept Project</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta-row flex-between">
+                <span class="project-category">TRAVEL &amp; AVIATION</span>
+                <span class="project-tech">webx • Global Booking Flow</span>
+              </div>
+              <h3 class="project-title">Velox Jetstream — Private Air Charter</h3>
+              <p class="project-summary">
+                Futuristic aviation charter reservation system with interactive globe flight routing, aircraft fleet specs, and instant concierge dispatch.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="project-card glass-card" data-category="creative">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project-portfolio.svg" alt="Kinetic Labs Creative Portfolio Concept" class="project-img" loading="lazy">
+              <div class="project-overlay flex-center">
+                <button class="btn-view-project" data-project="kinetic">
+                  <span>Inspect Concept</span>
+                  <i data-lucide="external-link"></i>
+                </button>
+              </div>
+              <span class="project-badge">Concept Project</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta-row flex-between">
+                <span class="project-category">CREATIVE PORTFOLIO</span>
+                <span class="project-tech">webx • WebGL &amp; Motion</span>
+              </div>
+              <h3 class="project-title">Kinetic Labs — 3D Motion Design Showcase</h3>
+              <p class="project-summary">
+                Experimental portfolio featuring smooth kinetic typography, custom fragment shaders, and dynamic case study layouts for digital creators.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 6 -->
+          <article class="project-card glass-card" data-category="marketing">
+            <div class="project-img-wrapper">
+              <img src="assets/images/project-metaads.svg" alt="MetaForce Omni-Campaign Concept" class="project-img" loading="lazy">
+              <div class="project-overlay flex-center">
+                <button class="btn-view-project" data-project="metaforce">
+                  <span>Inspect Concept</span>
+                  <i data-lucide="external-link"></i>
+                </button>
+              </div>
+              <span class="project-badge">Concept Project</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta-row flex-between">
+                <span class="project-category">ADVERTISING CAMPAIGN</span>
+                <span class="project-tech">Meta Ads • Multi-Funnel Strategy</span>
+              </div>
+              <h3 class="project-title">MetaForce — Omni-Channel Acquisition Suite</h3>
+              <p class="project-summary">
+                A structured advertising blueprint combining high-hook vertical video reels, retargeting carousels, and optimized mobile lead forms.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. ABOUT US SECTION
+         ========================================================================= -->
+    <section id="about" class="section-padding about-section">
+      <div class="section-container">
+        
+        <div class="about-grid">
+          
+          <!-- Left Column: Story -->
+          <div class="about-story-col">
+            <div class="sub-heading-pill">
+              <i data-lucide="compass" class="pill-icon text-violet"></i>
+              <span>ABOUT MUNAP DIGITAL &amp; webx</span>
+            </div>
+            <h2 class="section-title">Small Ideas. Bold Creativity. Powerful Digital Experiences.</h2>
+            <p class="about-lead-text">
+              MUNAP DIGITAL is an international-standard creative digital agency uniting modern website architecture by <strong>webx</strong> with performance-driven Meta advertising.
+            </p>
+            <p class="about-body-text">
+              We believe a modern business website should not merely exist as an electronic brochure — it must act as a digital engine that commands attention, validates authority, and turns incoming traffic into tangible commercial growth.
+            </p>
+            <p class="about-body-text">
+              Whether you are an ambitious startup launching an initial online presence or an established brand scaling lead flow with Instagram and Facebook campaigns, our dedicated team delivers end-to-end craftsmanship.
+            </p>
+
+            <div class="about-key-highlights flex-wrap">
+              <div class="highlight-chip">
+                <i data-lucide="check-circle" class="chip-icon"></i>
+                <span>Direct Strategic Collaboration</span>
+              </div>
+              <div class="highlight-chip">
+                <i data-lucide="check-circle" class="chip-icon"></i>
+                <span>Zero Third-Party Code Bloat</span>
+              </div>
+              <div class="highlight-chip">
+                <i data-lucide="check-circle" class="chip-icon"></i>
+                <span>Transparent WhatsApp Support</span>
+              </div>
+            </div>
+
+            <div class="about-founder-note glass-panel">
+              <div class="founder-quote-mark">“</div>
+              <p class="founder-text">
+                "We don't sell generic promises. We build real, high-performance web systems and targeted advertising funnels designed to give our clients an undeniable competitive edge."
+              </p>
+              <div class="founder-meta">
+                <strong>MUNAP DIGITAL &amp; webx Development Team</strong>
+                <span>Lead Strategist &amp; Engineer</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: 4 Strategic Pillars Grid -->
+          <div class="about-pillars-col">
+            <div class="pillar-card glass-card">
+              <div class="pillar-header flex-center-start">
+                <div class="pillar-icon-box"><i data-lucide="target"></i></div>
+                <h3 class="pillar-title">Our Mission</h3>
+              </div>
+              <p class="pillar-desc">
+                To equip businesses worldwide with memorable, high-converting digital platforms and advertising systems that eliminate digital mediocrity.
+              </p>
+            </div>
+
+            <div class="pillar-card glass-card">
+              <div class="pillar-header flex-center-start">
+                <div class="pillar-icon-box"><i data-lucide="eye"></i></div>
+                <h3 class="pillar-title">Our Vision</h3>
+              </div>
+              <p class="pillar-desc">
+                To be recognized as a premier boutique studio that redefines how creative 3D aesthetics and pragmatic digital marketing intersect.
+              </p>
+            </div>
+
+            <div class="pillar-card glass-card">
+              <div class="pillar-header flex-center-start">
+                <div class="pillar-icon-box"><i data-lucide="pen-tool"></i></div>
+                <h3 class="pillar-title">Our Creative Approach</h3>
+              </div>
+              <p class="pillar-desc">
+                Merging cinematic luxury editorial design, deliberate purple atmospheres, and laser-precise technical coding under the webx framework.
+              </p>
+            </div>
+
+            <div class="pillar-card glass-card">
+              <div class="pillar-header flex-center-start">
+                <div class="pillar-icon-box"><i data-lucide="shield-check"></i></div>
+                <h3 class="pillar-title">Why Work With Us</h3>
+              </div>
+              <p class="pillar-desc">
+                Transparent communication, honest pricing without fabricated guarantees, dedicated post-launch support, and direct access to senior practitioners.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         10. OUR WORK PROCESS
+         ========================================================================= -->
+    <section id="process" class="section-padding process-section">
+      <div class="section-container">
+        
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="sub-heading-pill">
+            <i data-lucide="git-commit" class="pill-icon text-violet"></i>
+            <span>TRANSPARENT METHODOLOGY</span>
+          </div>
+          <h2 class="section-title">Our Work Process.</h2>
+          <p class="section-subtitle">
+            A structured, repeatable five-stage framework that guarantees predictability, creative rigor, and flawless execution.
+          </p>
+        </div>
+
+        <!-- Interactive Process Toggle -->
+        <div class="process-toggle-container flex-center">
+          <div class="toggle-pill-wrapper">
+            <button id="toggle-process-web" class="process-toggle-btn active" data-flow="web">
+              <i data-lucide="code-2"></i>
+              <span>Website Projects (webx)</span>
+            </button>
+            <button id="toggle-process-ads" class="process-toggle-btn" data-flow="ads">
+              <i data-lucide="trending-up"></i>
+              <span>Meta Ads Campaigns</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Timeline 1: Website Projects -->
+        <div id="timeline-web" class="process-timeline-wrapper">
+          <div class="timeline-central-line"></div>
+          
+          <!-- Step 1 -->
+          <div class="timeline-step-item">
+            <div class="step-marker">
+              <span>01</span>
+            </div>
+            <div class="step-card glass-card">
+              <div class="step-tag">STAGE 01</div>
+              <h3 class="step-heading">Discover</h3>
+              <p class="step-text">
+                Understand the client's business, target audience, brand positioning, functional requirements, and commercial objectives.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step-item">
+            <div class="step-marker">
+              <span>02</span>
+            </div>
+            <div class="step-card glass-card">
+              <div class="step-tag">STAGE 02</div>
+              <h3 class="step-heading">Plan</h3>
+              <p class="step-text">
+                Define site architecture, feature scope, content hierarchy, technical stack under webx, milestone timelines, and deliverables.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step-item">
+            <div class="step-marker">
+              <span>03</span>
+            </div>
+            <div class="step-card glass-card">
+              <div class="step-tag">STAGE 03</div>
+              <h3 class="step-heading">Design &amp; Develop</h3>
+              <p class="step-text">
+                Create the visual UI in Figma, program responsive code, integrate custom animations, forms, database modules, and payment gateways.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-step-item">
+            <div class="step-marker">
+              <span>04</span>
+            </div>
+            <div class="step-card glass-card">
+              <div class="step-tag">STAGE 04</div>
+              <h3 class="step-heading">Test</h3>
+              <p class="step-text">
+                Rigorous multi-browser testing, mobile responsiveness checks, form verification, security audits, and performance tuning for Google Lighthouse.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="timeline-step-item">
+            <div class="step-marker">
+              <span>05</span>
+            </div>
+            <div class="step-card glass-card">
+              <div class="step-tag">STAGE 05</div>
+              <h3 class="step-heading">Launch</h3>
+              <p class="step-text">
+                DNS propagation, SSL configuration, search engine indexing, handover documentation, and ongoing agreed maintenance support.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline 2: Meta Ads Campaigns (Hidden by default) -->
+        <div id="timeline-ads" class="process-timeline-wrapper hidden-timeline">
+          <div class="timeline-central-line"></div>
+          
+          <div class="timeline-step-item">
+            <div class="step-marker">
+              <span>01</span>
+            </div>
+            <div class="step-card glass-card">
+              <div class="step-tag">STAGE 01</div>
+              <h3 class="step-heading">Discover Business Goals</h3>
+              <p class="step-text">
+                Audit existing advertising accounts, identify ideal customer profiles, determine unit economics, and define clear conversion targets.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-step-item">
+            <div class="step-marker">
+              <span>02</span>
+            </div>
+            <div class="step-card glass-card">
+              <div class="step-tag">STAGE 02</div>
+              <h3 class="step-heading">Develop Advertising Strategy</h3>
+              <p class="step-text">
+                Build full-funnel strategy (Top, Middle, Bottom of Funnel), audience segmentation, budget allocation, and Meta Conversions API (CAPI) setup.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-step-item">
+            <div class="step-marker">
+              <span>03</span>
+            </div>
+            <div class="step-card glass-card">
+              <div class="step-tag">STAGE 03</div>
+              <h3 class="step-heading">Create Campaign Creatives</h3>
+              <p class="step-text">
+                Design static creatives, vertical video scripts, persuasive advertising copy, and tailored high-converting landing page hooks.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-step-item">
+            <div class="step-marker">
+              <span>04</span>
+            </div>
+            <div class="step-card glass-card">
+              <div class="step-tag">STAGE 04</div>
+              <h3 class="step-heading">Launch Advertising Campaigns</h3>
+              <p class="step-text">
+                Deploy campaigns across Instagram and Facebook with controlled test budgets, dynamic creative testing, and tracking verification.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-step-item">
+            <div class="step-marker">
+              <span>05</span>
+            </div>
+            <div class="step-card glass-card">
+              <div class="step-tag">STAGE 05</div>
+              <h3 class="step-heading">Monitor and Optimize</h3>
+              <p class="step-text">
+                Weekly data analysis, creative fatigue rotation, bid adjustments, lookalike audience refinement, and transparent client reporting.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         11. FAQ SECTION
+         ========================================================================= -->
+    <section id="faq" class="section-padding faq-section">
+      <div class="section-container">
+        
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="sub-heading-pill">
+            <i data-lucide="help-circle" class="pill-icon text-violet"></i>
+            <span>HONEST ANSWERS &amp; TRANSPARENCY</span>
+          </div>
+          <h2 class="section-title">Frequently Asked Questions.</h2>
+          <p class="section-subtitle">
+            Realistic, straightforward answers to help you make an informed decision for your digital growth.
+          </p>
+        </div>
+
+        <div class="faq-accordion-container" id="faq-accordion">
+          
+          <!-- Q1 -->
+          <div class="faq-item glass-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-title">What services does MUNAP DIGITAL offer?</span>
+              <i data-lucide="chevron-down" class="faq-chevron"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                MUNAP DIGITAL is a full-service creative digital agency. Through our dedicated web engineering division <strong>webx</strong>, we develop bespoke business websites, e-commerce platforms, restaurant ordering sites, portfolios, and landing pages. Simultaneously, our growth team provides end-to-end Meta Ads management (Facebook &amp; Instagram), creative ad design, video ads, lead generation, and social media marketing.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="faq-item glass-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-title">How much does a website cost?</span>
+              <i data-lucide="chevron-down" class="faq-chevron"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                Website investment depends strictly on your project scope, required features, custom animations, e-commerce integrations, and timeline requirements. Rather than quoting arbitrary fixed numbers, we listen to your specific business requirements and prepare a detailed, transparent proposal tailored to your goals.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="faq-item glass-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-title">How long does website development take?</span>
+              <i data-lucide="chevron-down" class="faq-chevron"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                A focused landing page or business website typically requires 1 to 2 weeks from discovery to launch. Comprehensive e-commerce storefronts or complex custom web applications usually range from 3 to 6 weeks. We establish a clear milestone timeline before beginning any work.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="faq-item glass-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-title">Do you create e-commerce websites?</span>
+              <i data-lucide="chevron-down" class="faq-chevron"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                Yes. Our webx team builds robust, secure e-commerce websites complete with product catalogs, shopping cart architecture, automated tax/shipping calculations, payment gateways (Stripe, Razorpay, PayPal, etc.), order notification systems, and mobile-optimized checkouts.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="faq-item glass-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-title">What are Meta Ads?</span>
+              <i data-lucide="chevron-down" class="faq-chevron"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                Meta Ads encompass paid advertising across Facebook, Instagram, Messenger, and the Meta Audience Network. Using advanced behavioral targeting, demographic segmentation, and machine learning, Meta Ads allow businesses to display compelling image and video ads directly to high-intent audiences.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="faq-item glass-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-title">Is Meta advertising suitable for my business?</span>
+              <i data-lucide="chevron-down" class="faq-chevron"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                Meta Ads are exceptionally powerful for B2C brands, e-commerce stores, local restaurants, real estate firms, educational institutes, and service businesses where visual storytelling drives interest. During our initial consultation, we conduct an honest feasibility assessment to confirm whether Meta advertising aligns with your customer profile.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q7 -->
+          <div class="faq-item glass-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-title">What advertising budget should I start with?</span>
+              <i data-lucide="chevron-down" class="faq-chevron"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                We generally recommend beginning with an advertising test budget that allows sufficient daily conversions for Meta's algorithm to exit the learning phase effectively. For local businesses or test campaigns, this can start conservatively and scale upward once unit economics and cost per acquisition are validated.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q8 -->
+          <div class="faq-item glass-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-title">Do you provide website maintenance?</span>
+              <i data-lucide="chevron-down" class="faq-chevron"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                Yes. We offer proactive maintenance retainers covering security updates, automated backups, speed audits, content additions, and ongoing technical monitoring so you can run your business with total peace of mind.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q9 -->
+          <div class="faq-item glass-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-title">How can I start a project?</span>
+              <i data-lucide="chevron-down" class="faq-chevron"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                Starting is effortless. You can submit our website enquiry form below, interact directly with our guided Assistant on the bottom right, or connect with our team immediately on WhatsApp at <strong>+91 8465929132</strong>. We will review your goals and schedule a free discovery discussion.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         12. CONTACT AND LEAD GENERATION
+         ========================================================================= -->
+    <section id="contact" class="section-padding contact-section relative-section">
+      <div class="section-container">
+        
+        <div class="contact-layout-grid">
+          
+          <!-- Contact Left Details -->
+          <div class="contact-info-col reveal-on-scroll">
+            <div class="sub-heading-pill">
+              <i data-lucide="mail" class="pill-icon text-violet"></i>
+              <span>COMMENCE YOUR JOURNEY</span>
+            </div>
+            <h2 class="section-title">Let's Build Something Extraordinary.</h2>
+            <p class="contact-intro-text">
+              Have a vision for a groundbreaking website engineered by webx or looking to scale your business with calculated Meta advertising? Connect directly with our team.
+            </p>
+
+            <div class="contact-cards-stack">
+              
+              <!-- Direct Phone Card -->
+              <a href="tel:+918465929132" class="contact-item-card glass-card">
+                <div class="contact-icon-box icon-purple">
+                  <i data-lucide="phone"></i>
+                </div>
+                <div class="contact-detail-text">
+                  <span class="detail-label">CALL OUR STRATEGIST DIRECTLY</span>
+                  <span class="detail-val">+91 8465929132</span>
+                  <span class="detail-note">Available Mon – Sat (10:00 AM – 8:00 PM IST)</span>
+                </div>
+              </a>
+
+              <!-- Direct Email Card -->
+              <a href="mailto:ayanrizju@gmail.com" class="contact-item-card glass-card">
+                <div class="contact-icon-box icon-neon">
+                  <i data-lucide="mail"></i>
+                </div>
+                <div class="contact-detail-text">
+                  <span class="detail-label">EMAIL OFFICIAL INQUIRY</span>
+                  <span class="detail-val">ayanrizju@gmail.com</span>
+                  <span class="detail-note">Responses within 12 business hours</span>
+                </div>
+              </a>
+
+              <!-- WhatsApp Quick Access -->
+              <a href="https://wa.me/918465929132?text=Hello%20MUNAP%20DIGITAL%20Team,%20I%20would%20like%20to%20discuss%20a%20digital%20project." target="_blank" rel="noopener" class="contact-item-card glass-card whatsapp-highlight">
+                <div class="contact-icon-box icon-whatsapp">
+                  <i data-lucide="message-circle"></i>
+                </div>
+                <div class="contact-detail-text">
+                  <span class="detail-label">INSTANT WHATSAPP CHAT</span>
+                  <span class="detail-val">+91 8465929132</span>
+                  <span class="detail-note">Click for rapid conversation</span>
+                </div>
+              </a>
+
+              <!-- Web Dev Unit Note -->
+              <div class="contact-item-card glass-card">
+                <div class="contact-icon-box icon-cyan">
+                  <i data-lucide="code"></i>
+                </div>
+                <div class="contact-detail-text">
+                  <span class="detail-label">WEB ARCHITECTURE DIVISION</span>
+                  <span class="detail-val">webx Development Studio</span>
+                  <span class="detail-note">Custom Frontend, Three.js &amp; E-commerce Solutions</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Contact Right: Form -->
+          <div class="contact-form-col">
+            <div class="contact-form-wrapper glass-panel">
+              <div class="form-header-badge">
+                <i data-lucide="sparkles"></i>
+                <span>PROJECT INQUIRY FORM</span>
+              </div>
+              <h3 class="form-title">Tell Us About Your Project</h3>
+              <p class="form-subtitle">Fill in the details below and we will prepare a tailored proposal.</p>
+
+              <form id="agency-contact-form" class="agency-form" novalidate>
+                
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="contact-name" class="form-label">Full Name <span class="req">*</span></label>
+                    <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Alexander Vance" required>
+                    <span class="input-error-msg" id="name-error">Please enter your full name</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="contact-business" class="form-label">Business Name <span class="req">*</span></label>
+                    <input type="text" id="contact-business" name="business" class="form-input" placeholder="e.g. Apex Holdings" required>
+                    <span class="input-error-msg" id="business-error">Please enter your business name</span>
+                  </div>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="contact-email" class="form-label">Email Address <span class="req">*</span></label>
+                    <input type="email" id="contact-email" name="email" class="form-input" placeholder="alexander@domain.com" required>
+                    <span class="input-error-msg" id="email-error">Please enter a valid email address</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="contact-phone" class="form-label">Phone Number <span class="req">*</span></label>
+                    <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="e.g. +91 98765 43210" required>
+                    <span class="input-error-msg" id="phone-error">Please enter a valid phone number</span>
+                  </div>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="contact-business-type" class="form-label">Business Type</label>
+                    <select id="contact-business-type" name="business_type" class="form-select">
+                      <option value="Small / Medium Business">Small &amp; Medium Business</option>
+                      <option value="Restaurant &amp; Cafe">Restaurant &amp; Cafe</option>
+                      <option value="E-commerce Brand">E-commerce Brand</option>
+                      <option value="Real Estate">Real Estate</option>
+                      <option value="Clothing &amp; Fashion">Clothing &amp; Fashion</option>
+                      <option value="Educational Institution">Educational Institution</option>
+                      <option value="Local Business">Local Business</option>
+                      <option value="Startup / Tech">Startup / Entrepreneur</option>
+                      <option value="Freelancer / Professional">Freelancer / Professional</option>
+                      <option value="Other">Other Category</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="contact-service" class="form-label">Service Required <span class="req">*</span></label>
+                    <select id="contact-service" name="service" class="form-select" required>
+                      <option value="" disabled selected>Select Primary Service</option>
+                      <option value="Website Development by webx">Website Development (webx)</option>
+                      <option value="E-commerce Website Development">E-commerce Development</option>
+                      <option value="Restaurant Website & WhatsApp Ordering">Restaurant Website &amp; WhatsApp Menu</option>
+                      <option value="Portfolio Website">Portfolio Website</option>
+                      <option value="Landing Page Development">Landing Page Development</option>
+                      <option value="UI/UX Design">UI/UX Design</option>
+                      <option value="Website Maintenance">Website Maintenance</option>
+                      <option value="Meta Ads Management">Meta Ads Management (FB &amp; IG)</option>
+                      <option value="Lead Generation Funnel">Lead Generation Funnel</option>
+                      <option value="Social Media Marketing">Social Media Marketing</option>
+                      <option value="Complete Web + Meta Ads Package">Complete Web + Meta Ads Package</option>
+                    </select>
+                    <span class="input-error-msg" id="service-error">Please select a service</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-budget" class="form-label">Estimated Monthly Advertising / Project Budget</label>
+                  <select id="contact-budget" name="budget" class="form-select">
+                    <option value="Under $500 / ₹40,000">Under $500 / ₹40,000</option>
+                    <option value="$500 - $1,500 / ₹40,000 - ₹1,25,000">$500 – $1,500 / ₹40,000 – ₹1,25,000</option>
+                    <option value="$1,500 - $4,000 / ₹1,25,000 - ₹3,30,000">$1,500 – $4,000 / ₹1,25,000 – ₹3,30,000</option>
+                    <option value="$4,000+ / ₹3,30,000+">$4,000+ / ₹3,30,000+ (High Growth)</option>
+                    <option value="Custom / Flexible">Custom / To Be Discussed</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-details" class="form-label">Project Details &amp; Objectives</label>
+                  <textarea id="contact-details" name="details" class="form-textarea" rows="4" placeholder="Briefly describe what you want to achieve, any reference websites, domain status, or specific targets..."></textarea>
+                </div>
+
+                <!-- Submit & WhatsApp Button Group -->
+                <div class="form-actions-stack">
+                  <button type="submit" id="submit-enquiry-btn" class="btn-primary-purple btn-full">
+                    <span class="btn-text">Submit Enquiry</span>
+                    <i data-lucide="send" class="btn-icon"></i>
+                    <span class="btn-loader hidden-loader"></span>
+                  </button>
+
+                  <button type="button" id="whatsapp-enquiry-btn" class="btn-whatsapp-full">
+                    <i data-lucide="message-circle" class="btn-icon"></i>
+                    <span>Continue on WhatsApp with Form Details</span>
+                  </button>
+                </div>
+
+                <!-- Submission Status Alert -->
+                <div id="form-status-alert" class="form-alert hidden" role="alert"></div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       13. FLOATING WHATSAPP BUTTON
+       ========================================================================= -->
+  <aside class="floating-whatsapp-container" aria-label="WhatsApp Contact">
+    <a href="https://wa.me/918465929132?text=Hi%20MUNAP%20DIGITAL%20Team,%20I%20am%20interested%20in%20your%20services." target="_blank" rel="noopener" class="floating-whatsapp-btn" aria-label="Chat with MUNAP DIGITAL on WhatsApp">
+      <div class="whatsapp-pulse-ring"></div>
+      <i data-lucide="message-circle" class="wa-icon"></i>
+      <span class="whatsapp-tooltip">Chat with us on WhatsApp<br><strong>+91 8465929132</strong></span>
+    </a>
+  </aside>
+
+  <!-- =========================================================================
+       14. FLOATING AI-STYLE GUIDED CONTACT CHATBOT
+       ========================================================================= -->
+  <aside id="agency-chatbot" class="agency-chatbot-wrapper" aria-label="MUNAP DIGITAL Virtual Assistant">
+    
+    <!-- Floating Trigger Launcher -->
+    <button id="chatbot-launcher" class="chatbot-launcher-btn" aria-label="Open virtual assistant chat" aria-expanded="false">
+      <div class="launcher-pulse"></div>
+      <div class="launcher-icon-wrap">
+        <i data-lucide="sparkles" class="launcher-sparkle"></i>
+        <i data-lucide="message-square" class="launcher-chat"></i>
+      </div>
+      <span class="launcher-badge">1</span>
+    </button>
+
+    <!-- Chat Window Container -->
+    <div id="chatbot-window" class="chatbot-window glass-panel" aria-hidden="true">
+      
+      <!-- Chat Header -->
+      <div class="chatbot-header flex-between">
+        <div class="chat-header-identity flex-center">
+          <div class="chatbot-avatar">
+            <img src="assets/icons/logo.svg" alt="MUNAP Assistant" class="chat-avatar-img">
+            <span class="online-indicator"></span>
+          </div>
+          <div class="chatbot-title-group">
+            <h4 class="chatbot-title">MUNAP DIGITAL Assistant</h4>
+            <span class="chatbot-subtitle">Interactive Project Guide • webx</span>
+          </div>
+        </div>
+        
+        <div class="chat-header-actions flex-center">
+          <button id="chatbot-restart-btn" class="chat-action-btn" title="Restart conversation" aria-label="Restart chat">
+            <i data-lucide="rotate-ccw"></i>
+          </button>
+          <button id="chatbot-close-btn" class="chat-action-btn" title="Close chat" aria-label="Close chat">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Chat Scrollable Message Body -->
+      <div id="chatbot-messages" class="chatbot-messages-body" role="log" aria-live="polite">
+        <!-- Messages injected dynamically by script.js -->
+      </div>
+
+      <!-- Quick Reply Options Area -->
+      <div id="chatbot-quick-replies" class="chatbot-quick-replies-area">
+        <!-- Quick replies injected dynamically -->
+      </div>
+
+      <!-- Chat Input Form -->
+      <form id="chatbot-input-form" class="chatbot-input-area" novalidate>
+        <input type="text" id="chatbot-text-input" class="chatbot-input" placeholder="Type a message or select above..." autocomplete="off">
+        <button type="submit" id="chatbot-send-btn" class="chatbot-send-btn" aria-label="Send message">
+          <i data-lucide="send"></i>
+        </button>
+      </form>
+
+      <!-- Chat Footer Note -->
+      <div class="chat-window-footer flex-between">
+        <span class="chat-footer-note">⚡ Powered by webx architecture</span>
+        <a href="https://wa.me/918465929132" target="_blank" rel="noopener" class="chat-footer-wa">
+          <i data-lucide="message-circle"></i> +91 8465929132
+        </a>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       15. SERVICE DETAILS MODAL (DYNAMIC VIEWER)
+       ========================================================================= -->
+  <div id="service-modal" class="modal-backdrop hidden" aria-hidden="true" role="dialog" aria-labelledby="modal-service-title">
+    <div class="modal-glass-container glass-panel">
+      <button id="service-modal-close" class="modal-close-btn" aria-label="Close service details">
+        <i data-lucide="x"></i>
+      </button>
+      
+      <div class="modal-content-wrap">
+        <div class="modal-badge-row flex-between">
+          <span id="modal-service-num" class="modal-num-badge">SERVICE 01</span>
+          <span class="modal-sub-badge">webx ENGINEERING</span>
+        </div>
+        <h3 id="modal-service-title" class="modal-headline">Service Title</h3>
+        <p id="modal-service-desc" class="modal-body-p">Detailed explanation of deliverables.</p>
+        
+        <div class="modal-inclusions-box">
+          <h4 class="inclusions-heading">What's Included:</h4>
+          <ul id="modal-service-inclusions" class="inclusions-list"></ul>
+        </div>
+
+        <div class="modal-actions-row flex-between flex-wrap">
+          <button id="modal-consult-btn" class="btn-primary-purple">
+            <span>Inquire in Chatbot</span>
+            <i data-lucide="message-square"></i>
+          </button>
+          <a id="modal-whatsapp-btn" href="https://wa.me/918465929132" target="_blank" rel="noopener" class="btn-whatsapp-full">
+            <i data-lucide="message-circle"></i> WhatsApp Our Team
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       16. PROJECT INSPECT MODAL
+       ========================================================================= -->
+  <div id="project-modal" class="modal-backdrop hidden" aria-hidden="true" role="dialog" aria-labelledby="modal-project-title">
+    <div class="modal-glass-container glass-panel project-modal-wide">
+      <button id="project-modal-close" class="modal-close-btn" aria-label="Close project modal">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="project-modal-content">
+        <div class="project-modal-preview">
+          <img id="modal-project-img" src="assets/images/project-ecommerce.svg" alt="Project Preview" class="modal-img">
+        </div>
+        <div class="project-modal-details">
+          <div class="modal-badge-row">
+            <span id="modal-project-category" class="modal-num-badge">CONCEPT SHOWCASE</span>
+          </div>
+          <h3 id="modal-project-title" class="modal-headline">Project Name</h3>
+          <p id="modal-project-desc" class="modal-body-p">Comprehensive overview of design and tech.</p>
+
+          <div class="project-specs-grid">
+            <div class="spec-item">
+              <span class="spec-label">TECH STACK</span>
+              <span id="modal-project-stack" class="spec-val">webx Framework • Three.js</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">OBJECTIVE</span>
+              <span id="modal-project-objective" class="spec-val">Conversion &amp; Brand Authority</span>
+            </div>
+          </div>
+
+          <div class="modal-actions-row flex-between">
+            <a href="#contact" class="btn-primary-purple modal-nav-btn">
+              <span>Build A Similar Solution</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       17. FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="footer-ambient-glow"></div>
+    <div class="footer-container">
+      
+      <!-- Footer Top Grid -->
+      <div class="footer-grid">
+        
+        <!-- Brand Identity Column -->
+        <div class="footer-col brand-col">
+          <div class="footer-brand flex-center-start">
+            <img src="assets/icons/logo.svg" alt="MUNAP DIGITAL Logo" class="footer-logo">
+            <div class="footer-brand-text">
+              <span class="footer-brand-title">MUNAP <span class="text-violet">DIGITAL</span></span>
+              <span class="footer-brand-sub">DEVELOPMENT BY <strong class="text-highlight">webx</strong></span>
+            </div>
+          </div>
+          <p class="footer-tagline">
+            We Turn Ideas Into Digital Experiences. We Turn Attention Into Growth.
+          </p>
+          <p class="footer-address-note">
+            A boutique futuristic studio delivering modern web development and high-performing Meta advertising worldwide.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://wa.me/918465929132" target="_blank" rel="noopener" class="footer-social-icon" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+            <a href="mailto:ayanrizju@gmail.com" class="footer-social-icon" aria-label="Email"><i data-lucide="mail"></i></a>
+            <a href="#contact" class="footer-social-icon" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            <a href="#contact" class="footer-social-icon" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Website Solutions</a></li>
+            <li><a href="#meta-ads">Meta Ads Management</a></li>
+            <li><a href="#dashboard">Campaign Visualizer</a></li>
+            <li><a href="#portfolio">Concept Projects</a></li>
+            <li><a href="#about">About Our Studio</a></li>
+            <li><a href="#process">Work Process</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact &amp; Enquiry</a></li>
+          </ul>
+        </div>
+
+        <!-- Web Dev Services (webx) Column -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Web Development (webx)</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#services">Business Websites</a></li>
+            <li><a href="#services">E-commerce Stores</a></li>
+            <li><a href="#services">Restaurant &amp; WhatsApp Menu</a></li>
+            <li><a href="#services">Portfolio Websites</a></li>
+            <li><a href="#services">High-Converting Landing Pages</a></li>
+            <li><a href="#services">UI/UX Design Systems</a></li>
+            <li><a href="#services">Website Maintenance &amp; Care</a></li>
+            <li><a href="#services">Custom Web Solutions</a></li>
+          </ul>
+        </div>
+
+        <!-- Meta Ads & Contact Column -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Direct Contact</h4>
+          <div class="footer-contact-details">
+            <div class="contact-line">
+              <i data-lucide="phone" class="line-icon text-violet"></i>
+              <a href="tel:+918465929132">+91 8465929132</a>
+            </div>
+            <div class="contact-line">
+              <i data-lucide="mail" class="line-icon text-violet"></i>
+              <a href="mailto:ayanrizju@gmail.com">ayanrizju@gmail.com</a>
+            </div>
+            <div class="contact-line">
+              <i data-lucide="message-circle" class="line-icon text-highlight"></i>
+              <a href="https://wa.me/918465929132" target="_blank" rel="noopener">WhatsApp Direct Chat</a>
+            </div>
+            <div class="contact-line">
+              <i data-lucide="code-2" class="line-icon text-cyan"></i>
+              <span>Engineering Division: <strong>webx</strong></span>
+            </div>
+          </div>
+          <div class="footer-cta-box glass-panel">
+            <span class="cta-box-text">Ready to elevate your online business?</span>
+            <a href="#contact" class="btn-glow-purple btn-sm">Schedule Free Call</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Copyright & Legal -->
+      <div class="footer-bottom-bar flex-between flex-wrap">
+        <p class="copyright-text">
+          &copy; <span id="current-year">2026</span> <strong>MUNAP DIGITAL</strong>. All rights reserved. Web development engineered by <strong>webx</strong>.
+        </p>
+        <div class="footer-legal-links">
+          <span>Futuristic 3D &amp; Growth Studio</span>
+          <span class="divider">•</span>
+          <span>Crafted with Three.js &amp; GSAP</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
